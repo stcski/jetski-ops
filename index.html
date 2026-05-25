@@ -190,21 +190,7 @@ textarea.finp{resize:none;min-height:70px;}
   <div class="page" id="page-maint"><div id="maint-content"></div></div>
   <div class="page" id="page-history"><div id="hist-log"></div></div>
   <div class="page" id="page-admin">
-    <div id="pin-gate">
-      <div class="pin-screen">
-        <div class="pin-title">🔒 Admin</div>
-        <div class="pin-sub">Enter your PIN to manage tasks and settings</div>
-        <div class="pdots" id="pdots"><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div></div>
-        <div class="ppad">
-          <button class="pkey" onclick="pp('1')">1</button><button class="pkey" onclick="pp('2')">2</button><button class="pkey" onclick="pp('3')">3</button>
-          <button class="pkey" onclick="pp('4')">4</button><button class="pkey" onclick="pp('5')">5</button><button class="pkey" onclick="pp('6')">6</button>
-          <button class="pkey" onclick="pp('7')">7</button><button class="pkey" onclick="pp('8')">8</button><button class="pkey" onclick="pp('9')">9</button>
-          <button class="pkey" style="visibility:hidden"></button><button class="pkey" onclick="pp('0')">0</button><button class="pkey" onclick="pd()">⌫</button>
-        </div>
-        <div class="perr" id="perr"></div>
-      </div>
-    </div>
-    <div id="adm-content" style="display:none" class="adm">
+    <div id="adm-content" class="adm">
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Daily Tasks</div><button class="addbtn" onclick="openModal('task','daily',null)">+ Add</button></div><div id="adm-daily"></div></div>
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Monday Tasks</div><button class="addbtn" onclick="openModal('task','mon',null)">+ Add</button></div><div id="adm-mon"></div></div>
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Tuesday Tasks</div><button class="addbtn" onclick="openModal('task','tue',null)">+ Add</button></div><div id="adm-tue"></div></div>
@@ -214,12 +200,10 @@ textarea.finp{resize:none;min-height:70px;}
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Ski Names</div><button class="addbtn" onclick="saveSkiNames()">Save</button></div><div class="sgrid" id="adm-skinames"></div></div>
       <div class="asec">
         <div class="asec-title" style="margin-bottom:10px">Settings</div>
-        <button class="abtn" onclick="openModal('pin',null,null)">🔑 Change PIN</button>
         <button class="abtn" onclick="manualSync()">🔄 Force Sync</button>
         <button class="abtn" onclick="pushAll()">⬆️ Push All Data to Sheet</button>
         <a class="abtn" href="https://docs.google.com/spreadsheets/d/1lM75upNKgGPOhTDkB_FxGhDBrJQX-fwRfblPQD86AM0" target="_blank">📊 Open Google Sheet</a>
       </div>
-      <button class="alogout" onclick="adminLogout()">🔒 Lock Admin</button>
     </div>
   </div>
 </div>
