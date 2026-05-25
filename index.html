@@ -232,7 +232,7 @@ textarea.finp{resize:none;min-height:70px;}
 <div class="toast" id="toast"></div>
 
 <script>
-var GAS_URL = 'https://script.google.com/macros/s/AKfycbz4wSvXR7mTruONMSJU9N7WqlOzmDrZ0TEWKbmJa5PtQkt5pD_YAAOeyMaoJclsOE_n-A/exec';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbwgTlTMTZdd1xIrmn87vZGsxkXdvkbWOHNvbTKED23eBXa_1MVI4Ua6nMjVdbYgkgHV1w/exec';
 var PAGES = ['daily','mon','tue','wed','thu','maint','history','admin'];
 var TASK_PAGES = ['daily','mon','tue','wed','thu'];
 var WDAYS = ['mon','tue','wed','thu'];
@@ -310,29 +310,35 @@ function todayPageKey(){return DMAP[new Date().getDay()];}
 function subKey(page){return page==='daily'?todayKey():weekKey()+':'+page;}
 function ck(page,id){return page+':'+subKey(page)+':'+id;}
 
-// ── APPS SCRIPT API ───────────────────────────────────────────────────────────
-function gasUrl(params){
-  var url=GAS_URL+'?';
-  var parts=[];
-  for(var k in params) parts.push(encodeURIComponent(k)+'='+encodeURIComponent(typeof params[k]==='object'?JSON.stringify(params[k]):params[k]));
-  return url+parts.join('&');
+// ── APPS SCRIPT API (JSONP to bypass CORS) ────────────────────────────────────
+function gasCall(params){
+  return new Promise(function(resolve,reject){
+    var cbName='cb_'+Date.now()+'_'+Math.floor(Math.random()*9999);
+    var timeout=setTimeout(function(){
+      delete window[cbName];
+      reject(new Error('Timeout'));
+    },15000);
+    window[cbName]=function(data){
+      clearTimeout(timeout);
+      delete window[cbName];
+      if(data.error) reject(new Error(data.error));
+      else resolve(data);
+    };
+    params.callback=cbName;
+    var url=GAS_URL+'?';
+    var parts=[];
+    for(var k in params) parts.push(encodeURIComponent(k)+'='+encodeURIComponent(typeof params[k]==='object'?JSON.stringify(params[k]):params[k]));
+    url+=parts.join('&');
+    var s=document.createElement('script');
+    s.src=url;
+    s.onerror=function(){clearTimeout(timeout);delete window[cbName];reject(new Error('Script load failed'));};
+    document.head.appendChild(s);
+    setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},16000);
+  });
 }
-async function gasRead(tab){
-  var r=await fetch(gasUrl({action:'read',tab:tab}));
-  var d=await r.json();
-  if(d.error) throw new Error(d.error);
-  return d.values||[];
-}
-async function gasWrite(tab,data){
-  var r=await fetch(gasUrl({action:'write',tab:tab,data:JSON.stringify(data)}));
-  var d=await r.json();
-  if(d.error) throw new Error(d.error);
-}
-async function gasAppend(tab,row){
-  var r=await fetch(gasUrl({action:'append',tab:tab,row:JSON.stringify(row)}));
-  var d=await r.json();
-  if(d.error) throw new Error(d.error);
-}
+async function gasRead(tab){var d=await gasCall({action:'read',tab:tab});return d.values||[];}
+async function gasWrite(tab,data){await gasCall({action:'write',tab:tab,data:JSON.stringify(data)});}
+async function gasAppend(tab,row){await gasCall({action:'append',tab:tab,row:JSON.stringify(row)});}
 
 // ── SYNC ──────────────────────────────────────────────────────────────────────
 function setSyn(state,lbl){document.getElementById('sdot').className='sdot '+(state||'');document.getElementById('slbl').textContent=lbl;}
