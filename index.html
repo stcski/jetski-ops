@@ -43,6 +43,10 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .detail{display:none;padding:0 16px 14px;border-top:1px solid var(--border);}
 .card.open .detail{display:block;}
 .dnote{font-size:13px;color:#5a6a7a;line-height:1.5;margin-bottom:12px;padding-top:10px;}
+/* MEDIA */
+.task-photo{width:100%;border-radius:10px;margin-bottom:12px;max-height:220px;object-fit:cover;display:block;}
+.task-video{width:100%;border-radius:10px;margin-bottom:12px;aspect-ratio:16/9;border:none;}
+.media-btn{display:flex;align-items:center;gap:8px;background:var(--foam);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:12px;cursor:pointer;font-size:13px;font-weight:600;color:var(--ocean);text-decoration:none;width:100%;}
 .slbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
 .npicker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
 .nbtn{border:2px solid var(--border);background:var(--foam);border-radius:10px;padding:12px 8px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--dark);cursor:pointer;text-align:center;}
@@ -59,11 +63,6 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .co-lbl{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);white-space:nowrap;}
 .co-sel{flex:1;border:1.5px solid var(--border);border-radius:8px;padding:8px 10px;font-family:'Barlow',sans-serif;font-size:15px;font-weight:600;color:var(--dark);background:var(--foam);outline:none;-webkit-appearance:none;}
 .empty{text-align:center;padding:50px 20px;color:var(--gray);}
-.auth-screen{display:flex;flex-direction:column;align-items:center;padding:60px 20px;text-align:center;}
-.auth-icon{font-size:56px;margin-bottom:16px;}
-.auth-title{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;color:var(--deep);margin-bottom:8px;}
-.auth-sub{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:32px;}
-.auth-btn{background:var(--ocean);color:#fff;border:none;border-radius:14px;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;cursor:pointer;width:100%;max-width:280px;}
 .hday{margin-bottom:20px;}
 .hday-hdr{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;}
 .hentry{background:#fff;border-radius:10px;padding:11px 14px;margin-bottom:6px;border:1.5px solid var(--border);display:flex;align-items:center;gap:10px;}
@@ -73,8 +72,7 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .hwho{font-size:12px;color:var(--gray);}
 .htime{font-size:11px;color:var(--gray);flex-shrink:0;}
 /* MAINTENANCE */
-.maint-ski-list{display:flex;flex-direction:column;gap:8px;}
-.maint-ski-card{background:#fff;border-radius:14px;border:1.5px solid var(--border);overflow:hidden;cursor:pointer;}
+.maint-ski-card{background:#fff;border-radius:14px;margin-bottom:8px;border:1.5px solid var(--border);overflow:hidden;cursor:pointer;}
 .maint-ski-card.overdue{border-color:#ffd5d5;}
 .maint-ski-card.due-soon{border-color:#ffe082;}
 .maint-ski-card.ok{border-color:#c8f0d8;}
@@ -83,7 +81,6 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .maint-ski-info{flex:1;min-width:0;}
 .maint-ski-name{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:3px;}
 .maint-ski-hrs{font-size:12px;color:var(--gray);}
-.maint-status-pills{display:flex;gap:4px;flex-wrap:wrap;}
 .pill{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;border-radius:20px;padding:3px 8px;white-space:nowrap;}
 .pill.overdue{background:#fff0f0;color:var(--red);}
 .pill.due-soon{background:#fff8e1;color:#f57c00;}
@@ -157,10 +154,10 @@ textarea.finp{resize:none;min-height:70px;}
 .bnav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);z-index:100;padding-bottom:calc(8px + var(--sb));}
 .bnav-row{display:flex;}
 .bnav-divider{height:1px;background:var(--border);margin:0 16px;}
-.nbtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;cursor:pointer;padding:8px 4px;}
+.nbtn2{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;cursor:pointer;padding:8px 4px;}
 .nicon{font-size:18px;}
 .nlbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);}
-.nbtn.active .nlbl{color:var(--ocean);}
+.nbtn2.active .nlbl{color:var(--ocean);}
 .toast{position:fixed;bottom:calc(120px + var(--sb));left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;border-radius:20px;padding:10px 20px;font-size:13px;font-weight:600;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;}
 .toast.show{opacity:1;}
 </style>
@@ -170,7 +167,7 @@ textarea.finp{resize:none;min-height:70px;}
 <div class="hdr">
   <div class="hdr-top">
     <div><div class="brand">🌊 JET SKI OPS</div><span class="brand-sub">New York</span></div>
-    <div class="sbadge" id="sbadge"><div class="sdot" id="sdot"></div><span id="slbl">Loading…</span></div>
+    <div class="sbadge" id="sbadge" onclick="manualSync()"><div class="sdot" id="sdot"></div><span id="slbl">Loading…</span></div>
   </div>
   <div class="tabs">
     <button class="tab active" id="tab-daily" onclick="showPage('daily')">Daily</button>
@@ -208,7 +205,6 @@ textarea.finp{resize:none;min-height:70px;}
       </div>
     </div>
     <div id="adm-content" style="display:none" class="adm">
-      <div class="asec"><div class="asec-hdr"><div class="asec-title">Google Account</div></div><div id="auth-ui"></div></div>
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Daily Tasks</div><button class="addbtn" onclick="openModal('task','daily',null)">+ Add</button></div><div id="adm-daily"></div></div>
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Monday Tasks</div><button class="addbtn" onclick="openModal('task','mon',null)">+ Add</button></div><div id="adm-mon"></div></div>
       <div class="asec"><div class="asec-hdr"><div class="asec-title">Tuesday Tasks</div><button class="addbtn" onclick="openModal('task','tue',null)">+ Add</button></div><div id="adm-tue"></div></div>
@@ -220,6 +216,7 @@ textarea.finp{resize:none;min-height:70px;}
         <div class="asec-title" style="margin-bottom:10px">Settings</div>
         <button class="abtn" onclick="openModal('pin',null,null)">🔑 Change PIN</button>
         <button class="abtn" onclick="manualSync()">🔄 Force Sync</button>
+        <button class="abtn" onclick="pushAll()">⬆️ Push All Data to Sheet</button>
         <a class="abtn" href="https://docs.google.com/spreadsheets/d/1lM75upNKgGPOhTDkB_FxGhDBrJQX-fwRfblPQD86AM0" target="_blank">📊 Open Google Sheet</a>
       </div>
       <button class="alogout" onclick="adminLogout()">🔒 Lock Admin</button>
@@ -229,17 +226,17 @@ textarea.finp{resize:none;min-height:70px;}
 
 <div class="bnav">
   <div class="bnav-row">
-    <button class="nbtn active" id="nav-daily" onclick="showPage('daily')"><span class="nicon">☀️</span><span class="nlbl">Daily</span></button>
-    <button class="nbtn" id="nav-maint" onclick="showPage('maint')"><span class="nicon">🔧</span><span class="nlbl">Maint</span></button>
-    <button class="nbtn" id="nav-history" onclick="showPage('history')"><span class="nicon">🗂</span><span class="nlbl">Log</span></button>
-    <button class="nbtn" id="nav-admin" onclick="showPage('admin')"><span class="nicon">⚙️</span><span class="nlbl">Admin</span></button>
+    <button class="nbtn2 active" id="nav-daily" onclick="showPage('daily')"><span class="nicon">☀️</span><span class="nlbl">Daily</span></button>
+    <button class="nbtn2" id="nav-maint" onclick="showPage('maint')"><span class="nicon">🔧</span><span class="nlbl">Maint</span></button>
+    <button class="nbtn2" id="nav-history" onclick="showPage('history')"><span class="nicon">🗂</span><span class="nlbl">Log</span></button>
+    <button class="nbtn2" id="nav-admin" onclick="showPage('admin')"><span class="nicon">⚙️</span><span class="nlbl">Admin</span></button>
   </div>
   <div class="bnav-divider"></div>
   <div class="bnav-row">
-    <button class="nbtn" id="nav-mon" onclick="showPage('mon')"><span class="nicon">📋</span><span class="nlbl">Mon</span></button>
-    <button class="nbtn" id="nav-tue" onclick="showPage('tue')"><span class="nicon">📋</span><span class="nlbl">Tue</span></button>
-    <button class="nbtn" id="nav-wed" onclick="showPage('wed')"><span class="nicon">📋</span><span class="nlbl">Wed</span></button>
-    <button class="nbtn" id="nav-thu" onclick="showPage('thu')"><span class="nicon">📋</span><span class="nlbl">Thu</span></button>
+    <button class="nbtn2" id="nav-mon" onclick="showPage('mon')"><span class="nicon">📋</span><span class="nlbl">Mon</span></button>
+    <button class="nbtn2" id="nav-tue" onclick="showPage('tue')"><span class="nicon">📋</span><span class="nlbl">Tue</span></button>
+    <button class="nbtn2" id="nav-wed" onclick="showPage('wed')"><span class="nicon">📋</span><span class="nlbl">Wed</span></button>
+    <button class="nbtn2" id="nav-thu" onclick="showPage('thu')"><span class="nicon">📋</span><span class="nlbl">Thu</span></button>
   </div>
 </div>
 
@@ -251,29 +248,25 @@ textarea.finp{resize:none;min-height:70px;}
 <div class="toast" id="toast"></div>
 
 <script>
-var CLIENT_ID='708674549270-12530ugggo174lj017m5kblqio5ofq69.apps.googleusercontent.com';
-var SHEET_ID='1lM75upNKgGPOhTDkB_FxGhDBrJQX-fwRfblPQD86AM0';
-var SCOPES='https://www.googleapis.com/auth/spreadsheets';
-var PAGES=['daily','mon','tue','wed','thu','maint','history','admin'];
-var TASK_PAGES=['daily','mon','tue','wed','thu'];
-var WDAYS=['mon','tue','wed','thu'];
-var WDAY_NAMES={mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
-var DMAP={1:'mon',2:'tue',3:'wed',4:'thu',5:'fri',6:'sat',0:'sun'};
-var SERVICES=['oil','filter','plugs'];
-var SERVICE_NAMES={oil:'Oil Change',filter:'Filter Change',plugs:'Spark Plugs'};
-var FIRST_INTERVAL=50, REPEAT_INTERVAL=100;
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbwV7h3Z0O-GJ1qo84BXVwfB1vwXLiQozN-GBhRrQpjAY6MSVr9uIgNojJ9u7kmdhg9VMQ/exec';
+var PAGES = ['daily','mon','tue','wed','thu','maint','history','admin'];
+var TASK_PAGES = ['daily','mon','tue','wed','thu'];
+var WDAYS = ['mon','tue','wed','thu'];
+var WDAY_NAMES = {mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
+var DMAP = {1:'mon',2:'tue',3:'wed',4:'thu',5:'fri',6:'sat',0:'sun'};
+var SERVICES = ['oil','filter','plugs'];
+var SERVICE_NAMES = {oil:'Oil Change',filter:'Filter Change',plugs:'Spark Plugs'};
+var FIRST_INTERVAL = 50, REPEAT_INTERVAL = 100;
+var _pin = '', _ctx = {};
 
-var TOKEN=null, tokenClient=null, _pin='', _ctx={};
-
-var APP={
+var APP = {
   tasks:{daily:[],mon:[],tue:[],wed:[],thu:[]},
-  members:[],skiNames:[],
-  pin:'1234',completions:{},history:[],
-  skiHours:{},   // {skiIdx: currentHours}
-  maintLog:{}    // {skiIdx: {oil:[{date,hours,who}], filter:[...], plugs:[...]}}
+  members:[], skiNames:[], pin:'1234',
+  completions:{}, history:[],
+  skiHours:{}, maintLog:{}
 };
 
-var DD=[
+var DD = [
   {id:'d1',name:'Take out table',note:'Set up the outdoor table at the office area.',freq:'Daily · Morning'},
   {id:'d2',name:'Take out sandwich board',note:'Place sandwich board in its designated spot.',freq:'Daily · Morning'},
   {id:'d3',name:'Take out cooler & stock with water',note:'Fill cooler with bottled water on ice.',freq:'Daily · Morning'},
@@ -288,7 +281,7 @@ var DD=[
   {id:'d11',name:'Fuel all skis at end of day',note:'Top off every ski before securing for the night.',freq:'Daily · Evening'},
   {id:'d12',name:'End-of-day rinse & wipe-down',note:'Flush engines with fresh water. Wipe hulls and seats.',freq:'Daily · Evening'},
   {id:'d13',name:'Secure units & dock check',note:'All jet skis tied down. Nothing left unsecured.',freq:'Daily · Evening'},
-  {id:'d13b',name:'Remove water bags from racks and place on deck',note:'Remove water bags from the life jacket/wetsuit racks and store on the deck end of day.',freq:'Daily · Evening'},
+  {id:'d13b',name:'Remove water bags from racks and place on deck',note:'Remove water bags from racks and store on the deck end of day.',freq:'Daily · Evening'},
   {id:'d14',name:'Take in table',note:'Bring the outdoor table inside.',freq:'Daily · Evening'},
   {id:'d15',name:'Take in sandwich board',note:'Bring in the sandwich board.',freq:'Daily · Evening'},
   {id:'d15b',name:'Lock away all lanyards',note:'Collect all jet ski lanyards and lock them in the dock box at end of day.',freq:'Daily · Evening'},
@@ -298,22 +291,22 @@ var DD=[
   {id:'d19',name:'Back up photos to Pickthrive',note:'Upload all customer photos to Pickthrive.',freq:'Daily · Evening'},
   {id:'d20',name:'Log any incidents or issues',note:'Note any incidents or damage in the ops log.',freq:'Daily · Evening'}
 ];
-var WT={
-  mon:[{id:'w1',name:'Spray all engines with WD-40/656',note:'Spray engines with corrosion inhibitor. Wipe off excess.'},{id:'w2',name:'Collect updated engine hours',note:'Read hour meter on each ski and log the readings.',engineHours:true}],
-  tue:[{id:'w3',name:'Deep clean — hulls & seats',note:'Scrub hulls with marine cleaner. Clean and condition seats.'},{id:'w4',name:'Restock first aid & safety kit',note:'Check first aid kit and all required safety equipment.'}],
-  wed:[{id:'w5',name:'Battery voltage check',note:'Test battery on all units. Should read 12.6V+ at rest.'},{id:'w6',name:'Life jacket full audit',note:'Inspect all jackets for tears or broken buckles.'},{id:'w7',name:'Delete photos from iPhones',note:'Clear camera rolls on all company iPhones after confirming backup.'},{id:'w8',name:'Clean office and wash floors',note:'Full office clean including mopping all floor areas.'}],
-  thu:[{id:'w9',name:'Full engine oil check',note:'Check oil level on each unit. Top off if needed.'},{id:'w10',name:'Check throttle & steering cables',note:'Test full range of motion on handlebars.'},{id:'w11',name:'Inspect impeller & jet pump',note:'Check for debris in intake grate.'},{id:'w12',name:'Power wash jet ski docks/floats',note:'Power wash floating docks. Remove algae and debris.'},{id:'w13',name:'Charge marine radios at EOD',note:'Plug in all marine radios to charge overnight.'},{id:'w14',name:'Check contents of guide bags',note:'Verify guide bags have all required equipment and supplies.'}]
+var WT = {
+  mon:[{id:'w1',name:'Spray all engines with WD-40/656',note:'Spray engines with corrosion inhibitor.'},{id:'w2',name:'Collect updated engine hours',note:'Read hour meter on each ski and log readings.',engineHours:true}],
+  tue:[{id:'w3',name:'Deep clean — hulls & seats',note:'Scrub hulls with marine cleaner. Clean seats.'},{id:'w4',name:'Restock first aid & safety kit',note:'Check first aid kit and safety equipment.'}],
+  wed:[{id:'w5',name:'Battery voltage check',note:'Test battery on all units. 12.6V+ at rest.'},{id:'w6',name:'Life jacket full audit',note:'Inspect all jackets for tears or broken buckles.'},{id:'w7',name:'Delete photos from iPhones',note:'Clear camera rolls after confirming backup.'},{id:'w8',name:'Clean office and wash floors',note:'Full office clean including mopping.'}],
+  thu:[{id:'w9',name:'Full engine oil check',note:'Check oil level on each unit. Top off if needed.'},{id:'w10',name:'Check throttle & steering cables',note:'Test full range of motion on handlebars.'},{id:'w11',name:'Inspect impeller & jet pump',note:'Check for debris in intake grate.'},{id:'w12',name:'Power wash jet ski docks/floats',note:'Power wash floating docks. Remove algae.'},{id:'w13',name:'Charge marine radios at EOD',note:'Plug in all marine radios to charge overnight.'},{id:'w14',name:'Check contents of guide bags',note:'Verify guide bags have all required supplies.'}]
 };
-var DM=['Ruth','Curtis','Zach','Adam'];
-var DSN=[];for(var i=1;i<=25;i++)DSN.push('Ski '+i);
+var DM = ['Ruth','Curtis','Zach','Adam'];
+var DSN = []; for(var i=1;i<=25;i++) DSN.push('Ski '+i);
 
 // ── STORAGE ───────────────────────────────────────────────────────────────────
 function ls(k,v){if(v===undefined){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}else localStorage.setItem(k,JSON.stringify(v));}
-function saveLocal(){ls('jso3',APP);}
+function saveLocal(){ls('jso4',APP);}
 function loadLocal(){
-  var d=ls('jso3');
+  var d=ls('jso4');
   if(d){
-    APP.tasks=d.tasks||{daily:DD,mon:WT.mon,tue:WT.tue,wed:WT.wed,thu:WT.thu};
+    APP.tasks=d.tasks||{};
     APP.members=d.members&&d.members.length?d.members:DM;
     APP.skiNames=d.skiNames&&d.skiNames.length?d.skiNames:DSN;
     APP.pin=d.pin||'1234';
@@ -324,7 +317,7 @@ function loadLocal(){
     TASK_PAGES.forEach(function(p){if(!APP.tasks[p]||!APP.tasks[p].length)APP.tasks[p]=p==='daily'?DD:(WT[p]||[]);});
   } else {
     APP.tasks={daily:DD,mon:WT.mon,tue:WT.tue,wed:WT.wed,thu:WT.thu};
-    APP.members=DM;APP.skiNames=DSN;
+    APP.members=DM; APP.skiNames=DSN;
   }
 }
 function todayKey(){return new Date().toISOString().slice(0,10);}
@@ -333,237 +326,118 @@ function todayPageKey(){return DMAP[new Date().getDay()];}
 function subKey(page){return page==='daily'?todayKey():weekKey()+':'+page;}
 function ck(page,id){return page+':'+subKey(page)+':'+id;}
 
-// ── MAINTENANCE LOGIC ─────────────────────────────────────────────────────────
-function nextDue(log){
-  if(!log||!log.length) return FIRST_INTERVAL;
-  var last=log[log.length-1];
-  return last.hours+REPEAT_INTERVAL;
+// ── APPS SCRIPT API ───────────────────────────────────────────────────────────
+function gasUrl(params){
+  var url=GAS_URL+'?';
+  var parts=[];
+  for(var k in params) parts.push(encodeURIComponent(k)+'='+encodeURIComponent(typeof params[k]==='object'?JSON.stringify(params[k]):params[k]));
+  return url+parts.join('&');
 }
-function skiStatus(idx){
-  var hrs=parseFloat(APP.skiHours[idx]||0);
-  var worst='ok';
-  SERVICES.forEach(function(svc){
-    var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
-    var due=nextDue(log);
-    var diff=due-hrs;
-    if(diff<=0&&worst!=='overdue') worst='overdue';
-    else if(diff<=10&&diff>0&&worst==='ok') worst='due-soon';
-  });
-  return worst;
+async function gasRead(tab){
+  var r=await fetch(gasUrl({action:'read',tab:tab}));
+  var d=await r.json();
+  if(d.error) throw new Error(d.error);
+  return d.values||[];
 }
-
-function renderMaint(){
-  var html='<div style="margin-bottom:12px;display:flex;align-items:center;justify-content:space-between"><div style="font-family:\'Barlow Condensed\',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray)">Fleet · 25 Units</div></div>';
-  html+='<div class="maint-ski-list">';
-  for(var i=0;i<25;i++){
-    var idx=i;
-    var name=APP.skiNames[i]||('Ski '+(i+1));
-    var hrs=parseFloat(APP.skiHours[i]||0);
-    var status=skiStatus(i);
-    var pills='';
-    SERVICES.forEach(function(svc){
-      var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
-      var due=nextDue(log);
-      var diff=due-hrs;
-      var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';
-      var label=diff<=0?SERVICE_NAMES[svc]+' OVERDUE':diff<=10?SERVICE_NAMES[svc]+' due in '+Math.round(diff)+'h':SERVICE_NAMES[svc]+' ✓';
-      pills+='<span class="pill '+cls+'">'+label+'</span>';
-    });
-    html+='<div class="maint-ski-card '+status+'" id="mcard-'+i+'">'+
-      '<div class="maint-ski-row" onclick="togMaint('+i+')">'+
-      '<div class="maint-ski-num">'+(i+1)+'</div>'+
-      '<div class="maint-ski-info"><div class="maint-ski-name">'+name+'</div>'+
-      '<div class="maint-ski-hrs">'+hrs+' hrs</div></div>'+
-      '<div style="flex:1"></div>'+
-      '<div class="caret" style="font-size:18px;color:var(--gray)">⌄</div></div>'+
-      '<div class="maint-detail" id="mdet-'+i+'">'+
-      '<div class="maint-hrs-bar">'+
-      '<div class="maint-hrs-lbl">Current Hrs</div>'+
-      '<input class="maint-hrs-inp" id="mhrs-'+i+'" type="number" inputmode="decimal" value="'+hrs+'" placeholder="0">'+
-      '<button class="maint-hrs-save" onclick="saveHours('+i+')">Update</button></div>'+
-      renderServiceRows(i,hrs)+
-      '</div></div>';
-  }
-  html+='</div>';
-  document.getElementById('maint-content').innerHTML=html;
+async function gasWrite(tab,data){
+  var r=await fetch(gasUrl({action:'write',tab:tab,data:JSON.stringify(data)}));
+  var d=await r.json();
+  if(d.error) throw new Error(d.error);
 }
-
-function renderServiceRows(idx,hrs){
-  var html='';
-  SERVICES.forEach(function(svc){
-    var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
-    var due=nextDue(log);
-    var diff=due-hrs;
-    var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';
-    var dueText=diff<=0?'⚠️ Overdue by '+Math.abs(Math.round(diff))+'h':'Due at '+due+'h ('+Math.round(diff)+'h remaining)';
-    var lastText=log.length?'Last: '+log[log.length-1].date+' @ '+log[log.length-1].hours+'h by '+log[log.length-1].who:'Never serviced';
-    html+='<div class="service-row">'+
-      '<div><div class="service-name">'+SERVICE_NAMES[svc]+'</div>'+
-      '<div class="service-info">'+lastText+'</div>'+
-      '<div class="service-due '+cls+'">'+dueText+'</div></div>'+
-      '<button class="log-service-btn" onclick="logService('+idx+',\''+svc+'\')">Log</button></div>';
-    if(log.length){
-      html+='<div class="service-history"><div class="service-history-title">History</div>';
-      var show=log.slice().reverse().slice(0,5);
-      show.forEach(function(e){html+='<div class="service-history-row"><span>'+e.date+'</span><span>'+e.hours+'h · '+e.who+'</span></div>';});
-      html+='</div>';
-    }
-  });
-  return html;
-}
-
-function togMaint(i){
-  var card=document.getElementById('mcard-'+i);
-  card.classList.toggle('open');
-}
-
-function saveHours(idx){
-  var el=document.getElementById('mhrs-'+idx);
-  if(!el)return;
-  var val=parseFloat(el.value);
-  if(isNaN(val))return;
-  APP.skiHours[idx]=val;
-  saveLocal();renderMaint();
-  pushMaintToSheet();
-  toast('Hours updated');
-}
-
-function logService(idx,svc){
-  openModal('service',idx,svc);
-}
-
-// ── GOOGLE AUTH ───────────────────────────────────────────────────────────────
-function initGoogleAuth(){
-  try{tokenClient=google.accounts.oauth2.initTokenClient({client_id:CLIENT_ID,scope:SCOPES,callback:onToken});}
-  catch(e){console.error(e);setSyn('err','Auth init failed');return;}
-  var saved=ls('jso_tok');
-  if(saved){TOKEN=saved;initSheet();}
-  else{setSyn('err','Tap to sign in');showAuthScreen();}
-}
-function onToken(resp){if(resp.error){console.error(resp);setSyn('err','Auth failed');return;}TOKEN=resp.access_token;ls('jso_tok',TOKEN);setSyn('spin','Loading…');initSheet();}
-function signIn(){if(!tokenClient){setSyn('err','Not ready');return;}tokenClient.requestAccessToken({prompt:''});}
-function signOut(){TOKEN=null;ls('jso_tok',null);setSyn('err','Tap to sign in');updateAuthUI();showAuthScreen();}
-function showAuthScreen(){document.getElementById('tasks-daily').innerHTML='<div class="auth-screen"><div class="auth-icon">🌊</div><div class="auth-title">Jet Ski Ops · NY</div><div class="auth-sub">Sign in with Google to sync tasks across your whole team.</div><button class="auth-btn" onclick="signIn()">Sign in with Google</button></div>';}
-function updateAuthUI(){
-  var el=document.getElementById('auth-ui');if(!el)return;
-  el.innerHTML=TOKEN
-    ?'<div style="background:#f6fef9;border:1.5px solid #c8f0d8;border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between"><span style="font-size:13px;font-weight:600;color:#2d6a4f">✓ Connected to Google Sheets</span><button onclick="signOut()" style="background:#e8f5e9;border:none;border-radius:8px;padding:6px 12px;font-family:Barlow Condensed,sans-serif;font-size:13px;font-weight:700;color:#2d6a4f;cursor:pointer">Sign Out</button></div>'
-    :'<div style="background:var(--foam);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px"><p style="font-size:13px;color:var(--gray);margin-bottom:10px">Sign in to sync across all team devices.</p><button onclick="signIn()" style="width:100%;background:var(--ocean);color:#fff;border:none;border-radius:10px;padding:12px;font-family:Barlow Condensed,sans-serif;font-size:15px;font-weight:700;cursor:pointer">Sign in with Google</button></div>';
-}
-
-// ── SHEETS ────────────────────────────────────────────────────────────────────
-var BASE='https://sheets.googleapis.com/v4/spreadsheets/'+SHEET_ID;
-function ah(){return {Authorization:'Bearer '+TOKEN,'Content-Type':'application/json'};}
-async function sGet(r){var res=await fetch(BASE+'/values/'+encodeURIComponent(r),{headers:{Authorization:'Bearer '+TOKEN}});if(!res.ok)throw new Error('Read '+res.status);return (await res.json()).values||[];}
-async function sPut(r,v){await fetch(BASE+'/values/'+encodeURIComponent(r)+'?valueInputOption=RAW',{method:'PUT',headers:ah(),body:JSON.stringify({values:v})});}
-async function sClear(t){await fetch(BASE+'/values/'+encodeURIComponent(t)+':clear',{method:'POST',headers:ah()});}
-async function sAppend(r,v){await fetch(BASE+'/values/'+encodeURIComponent(r)+':append?valueInputOption=RAW&insertDataOption=INSERT_ROWS',{method:'POST',headers:ah(),body:JSON.stringify({values:v})});}
-
-var ALL_TABS=['Daily Tasks','Mon Tasks','Tue Tasks','Wed Tasks','Thu Tasks','Members','Ski Names','Completions','History','Config','Ski Hours','Maint Log'];
-
-async function initSheet(){
-  if(!TOKEN)return;
-  setSyn('spin','Connecting…');
-  try{
-    var meta=await fetch(BASE,{headers:{Authorization:'Bearer '+TOKEN}});
-    var md=await meta.json();
-    var existing=(md.sheets||[]).map(function(s){return s.properties.title;});
-    var create=ALL_TABS.filter(function(t){return existing.indexOf(t)===-1;});
-    if(create.length){await fetch(BASE+':batchUpdate',{method:'POST',headers:ah(),body:JSON.stringify({requests:create.map(function(t){return {addSheet:{properties:{title:t}}};})})});}
-    await pullSheets();
-    setSyn('ok','Synced');renderAll();updateAuthUI();toast('Connected ✓');highlightToday();
-  }catch(e){console.error(e);setSyn('err','Sheet error');renderAll();updateAuthUI();}
-}
-
-async function pullSheets(){
-  var parseTask=function(r){return {id:r[0],name:r[1]||'',note:r[2]||'',freq:r[3]||'',engineHours:r[4]==='true'};};
-  var dt=await sGet('Daily Tasks!A1:E100');
-  if(dt.length>1)APP.tasks.daily=dt.slice(1).filter(function(r){return r[0];}).map(parseTask);
-  var dayMap={mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
-  for(var day in dayMap){var rows=await sGet(dayMap[day]+'!A1:E100');if(rows.length>1)APP.tasks[day]=rows.slice(1).filter(function(r){return r[0];}).map(parseTask);}
-  var mb=await sGet('Members!A1:A50');if(mb.length>1)APP.members=mb.slice(1).map(function(r){return r[0];}).filter(Boolean);
-  var sn=await sGet('Ski Names!A1:B30');if(sn.length>1)APP.skiNames=sn.slice(1).map(function(r){return r[1]||r[0]||'';});
-  var cfg=await sGet('Config!A1:B20');if(cfg.length){var m={};cfg.forEach(function(r){m[r[0]]=r[1];});if(m.pin)APP.pin=m.pin;}
-  var today=todayKey(),wk=weekKey();
-  var co=await sGet('Completions!A1:D5000');
-  APP.completions={};
-  if(co.length>1)co.slice(1).forEach(function(r){if(r[0]&&(r[0].indexOf(today)!==-1||r[0].indexOf(wk)!==-1))APP.completions[r[0]]={who:r[1],time:r[2],hj:r[3]||''};});
-  var ht=await sGet('History!A1:F300');
-  if(ht.length>1)APP.history=ht.slice(1).slice(0,200).map(function(r){return {date:r[0],time:r[1],taskId:r[2],taskName:r[3],who:r[4],type:r[5]||''};});
-  // Ski hours
-  var sh=await sGet('Ski Hours!A1:B30');
-  APP.skiHours={};
-  if(sh.length>1)sh.slice(1).forEach(function(r){if(r[0]!==undefined)APP.skiHours[parseInt(r[0])]=parseFloat(r[1])||0;});
-  // Maint log
-  var ml=await sGet('Maint Log!A1:F5000');
-  APP.maintLog={};
-  if(ml.length>1)ml.slice(1).forEach(function(r){
-    var idx=parseInt(r[0]);var svc=r[1];
-    if(isNaN(idx)||!svc)return;
-    if(!APP.maintLog[idx])APP.maintLog[idx]={oil:[],filter:[],plugs:[]};
-    if(!APP.maintLog[idx][svc])APP.maintLog[idx][svc]=[];
-    APP.maintLog[idx][svc].push({date:r[2],hours:parseFloat(r[3])||0,who:r[4]||''});
-  });
-  saveLocal();
-  var isEmpty=dt.length<=1&&mb.length<=1;
-  if(isEmpty)await pushDefaults();
-}
-
-async function pushDefaults(){
-  var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false'];};
-  await sPut('Daily Tasks!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks.daily.map(enc)));
-  await sPut('Mon Tasks!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks.mon.map(enc)));
-  await sPut('Tue Tasks!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks.tue.map(enc)));
-  await sPut('Wed Tasks!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks.wed.map(enc)));
-  await sPut('Thu Tasks!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks.thu.map(enc)));
-  await sPut('Members!A1',[['name']].concat(APP.members.map(function(m){return [m];})));
-  await sPut('Ski Names!A1',[['number','name']].concat(APP.skiNames.map(function(n,i){return [i+1,n];})));
-  await sPut('Config!A1',[['pin',APP.pin]]);
-}
-
-async function pushTaskTab(page){
-  if(!TOKEN)return;
-  var tabMap={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
-  await sClear(tabMap[page]);
-  await sPut(tabMap[page]+'!A1',[['id','name','note','freq','engineHours']].concat(APP.tasks[page].map(function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false'];})));
-}
-async function pushMembers(){if(!TOKEN)return;await sClear('Members');await sPut('Members!A1',[['name']].concat(APP.members.map(function(m){return [m];})));}
-async function pushSkiNames2(){if(!TOKEN)return;await sClear('Ski Names');await sPut('Ski Names!A1',[['number','name']].concat(APP.skiNames.map(function(n,i){return [i+1,n];})));}
-async function pushConfig(){if(!TOKEN)return;await sPut('Config!A1',[['pin',APP.pin]]);}
-async function appendComp(key,who,time,hj){if(!TOKEN)return;await sAppend('Completions!A1',[[key,who,time,hj||'']]);}
-async function appendHist(e){if(!TOKEN)return;await sAppend('History!A1',[[e.date,e.time,e.taskId,e.taskName,e.who,e.type||'']]);}
-async function pushAllComps(){if(!TOKEN)return;await sClear('Completions');var rows=Object.keys(APP.completions).map(function(k){var v=APP.completions[k];return [k,v.who,v.time,v.hj||''];});if(rows.length)await sPut('Completions!A1',[['key','who','time','hours']].concat(rows));}
-
-async function pushMaintToSheet(){
-  if(!TOKEN)return;
-  // Push ski hours
-  await sClear('Ski Hours');
-  var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
-  if(hRows.length)await sPut('Ski Hours!A1',[['skiIdx','hours']].concat(hRows));
-  // Push maint log
-  await sClear('Maint Log');
-  var mRows=[];
-  Object.keys(APP.maintLog).forEach(function(idx){
-    var skiLog=APP.maintLog[idx];
-    SERVICES.forEach(function(svc){
-      (skiLog[svc]||[]).forEach(function(e){mRows.push([parseInt(idx),svc,e.date,e.hours,e.who]);});
-    });
-  });
-  if(mRows.length)await sPut('Maint Log!A1',[['skiIdx','service','date','hours','who']].concat(mRows));
-}
-
-async function appendMaintRow(idx,svc,date,hours,who){
-  if(!TOKEN)return;
-  await sAppend('Maint Log!A1',[[idx,svc,date,hours,who]]);
+async function gasAppend(tab,row){
+  var r=await fetch(gasUrl({action:'append',tab:tab,row:JSON.stringify(row)}));
+  var d=await r.json();
+  if(d.error) throw new Error(d.error);
 }
 
 // ── SYNC ──────────────────────────────────────────────────────────────────────
 function setSyn(state,lbl){document.getElementById('sdot').className='sdot '+(state||'');document.getElementById('slbl').textContent=lbl;}
+
+async function initSync(){
+  setSyn('spin','Connecting…');
+  try{
+    await pullFromSheet();
+    setSyn('ok','Synced');
+    renderAll(); highlightToday();
+    toast('Connected ✓');
+  }catch(e){
+    console.error('initSync',e);
+    setSyn('err','Offline — local data');
+    renderAll(); highlightToday();
+  }
+}
+
+async function pullFromSheet(){
+  var parseTask=function(r){return {id:r[0],name:r[1]||'',note:r[2]||'',freq:r[3]||'',engineHours:r[4]==='true',videoUrl:r[5]||'',photoUrl:r[6]||''};};
+  try{
+    var dt=await gasRead('Daily Tasks');
+    if(dt.length>1) APP.tasks.daily=dt.slice(1).filter(function(r){return r[0];}).map(parseTask);
+    var dayMap={mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+    for(var day in dayMap){
+      var rows=await gasRead(dayMap[day]);
+      if(rows.length>1) APP.tasks[day]=rows.slice(1).filter(function(r){return r[0];}).map(parseTask);
+    }
+    var mb=await gasRead('Members');
+    if(mb.length>1) APP.members=mb.slice(1).map(function(r){return r[0];}).filter(Boolean);
+    var sn=await gasRead('Ski Names');
+    if(sn.length>1) APP.skiNames=sn.slice(1).map(function(r){return r[1]||r[0]||'';});
+    var cfg=await gasRead('Config');
+    if(cfg.length){var m={};cfg.forEach(function(r){if(r[0])m[r[0]]=r[1];});if(m.pin)APP.pin=m.pin;}
+    var today=todayKey(),wk=weekKey();
+    var co=await gasRead('Completions');
+    APP.completions={};
+    if(co.length>1) co.slice(1).forEach(function(r){if(r[0]&&(r[0].indexOf(today)!==-1||r[0].indexOf(wk)!==-1))APP.completions[r[0]]={who:r[1],time:r[2],hj:r[3]||''};});
+    var ht=await gasRead('History');
+    if(ht.length>1) APP.history=ht.slice(1).slice(0,200).map(function(r){return {date:r[0],time:r[1],taskId:r[2],taskName:r[3],who:r[4],type:r[5]||''};});
+    var sh=await gasRead('Ski Hours');
+    APP.skiHours={};
+    if(sh.length>1) sh.slice(1).forEach(function(r){if(r[0]!==undefined&&r[0]!=='')APP.skiHours[parseInt(r[0])]=parseFloat(r[1])||0;});
+    var ml=await gasRead('Maint Log');
+    APP.maintLog={};
+    if(ml.length>1) ml.slice(1).forEach(function(r){
+      var idx=parseInt(r[0]);var svc=r[1];
+      if(isNaN(idx)||!svc)return;
+      if(!APP.maintLog[idx])APP.maintLog[idx]={oil:[],filter:[],plugs:[]};
+      if(!APP.maintLog[idx][svc])APP.maintLog[idx][svc]=[];
+      APP.maintLog[idx][svc].push({date:r[2],hours:parseFloat(r[3])||0,who:r[4]||''});
+    });
+    saveLocal();
+    // push defaults if empty
+    var isEmpty=dt.length<=1&&mb.length<=1;
+    if(isEmpty) await pushAll();
+  }catch(e){throw e;}
+}
+
+async function pushAll(){
+  setSyn('spin','Saving…');
+  try{
+    var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
+    var hdr=['id','name','note','freq','engineHours','videoUrl','photoUrl'];
+    await gasWrite('Daily Tasks',[hdr].concat(APP.tasks.daily.map(enc)));
+    await gasWrite('Mon Tasks',[hdr].concat(APP.tasks.mon.map(enc)));
+    await gasWrite('Tue Tasks',[hdr].concat(APP.tasks.tue.map(enc)));
+    await gasWrite('Wed Tasks',[hdr].concat(APP.tasks.wed.map(enc)));
+    await gasWrite('Thu Tasks',[hdr].concat(APP.tasks.thu.map(enc)));
+    await gasWrite('Members',[['name']].concat(APP.members.map(function(m){return [m];})));
+    await gasWrite('Ski Names',[['number','name']].concat(APP.skiNames.map(function(n,i){return [i+1,n];})));
+    await gasWrite('Config',[['pin',APP.pin]]);
+    var cRows=Object.keys(APP.completions).map(function(k){var v=APP.completions[k];return [k,v.who,v.time,v.hj||''];});
+    await gasWrite('Completions',[['key','who','time','hours']].concat(cRows));
+    await gasWrite('History',[['date','time','taskId','taskName','who','type']].concat(APP.history.map(function(e){return [e.date,e.time,e.taskId,e.taskName,e.who,e.type||''];})));
+    var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
+    await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));
+    var mRows=[];
+    Object.keys(APP.maintLog).forEach(function(idx){var skiLog=APP.maintLog[idx];SERVICES.forEach(function(svc){(skiLog[svc]||[]).forEach(function(e){mRows.push([parseInt(idx),svc,e.date,e.hours,e.who]);});});});
+    await gasWrite('Maint Log',[['skiIdx','service','date','hours','who']].concat(mRows));
+    setSyn('ok','Synced');
+    toast('All data saved ✓');
+  }catch(e){console.error(e);setSyn('err','Save failed');}
+}
+
 async function manualSync(){
-  if(!TOKEN){signIn();return;}
   setSyn('spin','Syncing…');
-  try{await pullSheets();setSyn('ok','Synced');renderAll();toast('Synced ✓');}
-  catch(e){setSyn('err','Failed');}
+  try{await pullFromSheet();setSyn('ok','Synced');renderAll();toast('Synced ✓');}
+  catch(e){setSyn('err','Sync failed');}
 }
 
 // ── SIGN OFF ──────────────────────────────────────────────────────────────────
@@ -572,14 +446,26 @@ async function doSignOff(page,taskId,taskName,who,hj){
   var key=ck(page,taskId);
   APP.completions[key]={who:who,time:time,hj:hj||''};
   var entry={date:todayKey(),time:time,taskId:taskId,taskName:taskName,who:who,type:page==='daily'?'daily':'weekly'};
-  APP.history.unshift(entry);if(APP.history.length>500)APP.history=APP.history.slice(0,500);
+  APP.history.unshift(entry);
+  if(APP.history.length>500) APP.history=APP.history.slice(0,500);
   saveLocal();renderPage(page);renderHistory();
-  setSyn('spin','Saving…');await appendComp(key,who,time,hj||'');await appendHist(entry);setSyn('ok','Synced');
+  setSyn('spin','Saving…');
+  try{
+    await gasAppend('Completions',[key,who,time,hj||'']);
+    await gasAppend('History',[entry.date,entry.time,entry.taskId,entry.taskName,entry.who,entry.type]);
+    setSyn('ok','Synced');
+  }catch(e){setSyn('err','Save failed');}
 }
+
 async function undoTask(page,taskId){
   delete APP.completions[ck(page,taskId)];
   saveLocal();renderPage(page);renderHistory();
-  setSyn('spin','Saving…');await pushAllComps();setSyn('ok','Synced');
+  setSyn('spin','Saving…');
+  try{
+    var cRows=Object.keys(APP.completions).map(function(k){var v=APP.completions[k];return [k,v.who,v.time,v.hj||''];});
+    await gasWrite('Completions',[['key','who','time','hours']].concat(cRows));
+    setSyn('ok','Synced');
+  }catch(e){setSyn('err','Save failed');}
 }
 
 // ── CO BAR ────────────────────────────────────────────────────────────────────
@@ -593,10 +479,10 @@ async function saveCO(page){
   var sel=document.getElementById('co-'+page);if(!sel||!sel.value)return;
   var key=coKey(page);var time=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
   APP.completions[key]={who:sel.value,time:time,hj:''};saveLocal();
-  await appendComp(key,sel.value,time,'');
+  try{await gasAppend('Completions',[key,sel.value,time,'']);}catch(e){}
 }
 
-// ── RENDER PAGE ───────────────────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────────────────────
 function fcomps(page){
   var px=page+':'+subKey(page)+':',out={};
   Object.keys(APP.completions).forEach(function(k){if(k.indexOf(px)===0)out[k.split(':').pop()]=APP.completions[k];});
@@ -607,7 +493,6 @@ function renderPage(page){
   if(page==='history'){renderHistory();return;}
   if(page==='admin')return;
   if(page==='maint'){renderMaint();return;}
-  if(!TOKEN){if(page==='daily')showAuthScreen();else document.getElementById('tasks-'+page).innerHTML='<div class="empty">Sign in to view tasks.</div>';return;}
   var tasks=APP.tasks[page]||[];var comps=fcomps(page);var done=Object.keys(comps).length;
   document.getElementById('pbar-'+page).style.width=(tasks.length?Math.round(done/tasks.length*100):0)+'%';
   var html=renderCOBar(page);
@@ -628,17 +513,38 @@ function renderPage(page){
   document.getElementById('tasks-'+page).innerHTML=html;
 }
 
+function getYouTubeId(url){
+  if(!url)return null;
+  var m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+  return m?m[1]:null;
+}
+function getDriveId(url){
+  if(!url)return null;
+  var m=url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  return m?m[1]:null;
+}
+
 function cardHTML(task,page,comp){
   var isDone=!!comp;
   var sn=task.name.replace(/'/g,"\\'").replace(/"/g,'&quot;');
   var nbtns=APP.members.map(function(n){return '<button class="nbtn" onclick="selName(\''+page+'\',\''+task.id+'\',\''+sn+'\',\''+n+'\',this)">'+n+'</button>';}).join('');
   var hgrid=task.engineHours?buildHGrid(task.id,isDone,comp):'';
   var meta=isDone?'✓ '+comp.who+' · '+comp.time:(task.freq||WDAY_NAMES[page]||'');
+
+  // Media
+  var mediaHtml='';
+  var ytId=getYouTubeId(task.videoUrl||'');
+  var driveId=getDriveId(task.photoUrl||'');
+  if(ytId) mediaHtml+='<iframe class="task-video" src="https://www.youtube.com/embed/'+ytId+'" allowfullscreen></iframe>';
+  if(driveId) mediaHtml+='<img class="task-photo" src="https://drive.google.com/thumbnail?id='+driveId+'&sz=w800" alt="Task reference" onerror="this.style.display=\'none\'">';
+
   return '<div class="card'+(isDone?' done':'')+'" id="card-'+task.id+'">'+
-    '<div class="card-row" onclick="tog(\''+task.id+'\')"><div class="chk">'+(isDone?'✓':'')+'</div>'+
-    '<div class="ci"><div class="cn">'+task.name+'</div><div class="cm">'+meta+'</div></div>'+
+    '<div class="card-row" onclick="tog(\''+task.id+'\')"><div class="chk">'+(isDone?'✓':'')+(task.videoUrl||task.photoUrl?'<span style="position:absolute;font-size:8px;margin-top:16px;margin-left:-6px">'+(task.videoUrl?'▶':'')+(task.photoUrl?'📷':'')+'</span>':'')+'</div>'+
+    '<div class="ci"><div class="cn">'+task.name+'</div><div class="cm">'+meta+(task.videoUrl?' · 📹':'')+(task.photoUrl?' · 📷':'')+'</div></div>'+
     '<div class="caret">⌄</div></div>'+
-    '<div class="detail" id="det-'+task.id+'"><div class="dnote">'+(task.note||'')+'</div>'+hgrid+
+    '<div class="detail" id="det-'+task.id+'">'+
+    (task.note?'<div class="dnote">'+task.note+'</div>':'')+
+    mediaHtml+hgrid+
     '<div class="slbl">Sign Off</div>'+
     (isDone?'<div class="dby">✅ '+comp.who+' · '+comp.time+'</div><button class="undobtn" onclick="undoTask(\''+page+'\',\''+task.id+'\')">Undo Sign-Off</button>'
     :'<div class="npicker" id="np-'+task.id+'">'+nbtns+'</div><button class="cfmbtn" id="cfm-'+task.id+'"></button>')+'</div></div>';
@@ -660,6 +566,77 @@ function selName(page,tid,taskName,name,btn){
   cb.onclick=function(){doSignOff(page,tid,taskName,name,task&&task.engineHours?getHours(tid):'');};
 }
 
+// ── MAINTENANCE ───────────────────────────────────────────────────────────────
+function nextDue(log){if(!log||!log.length)return FIRST_INTERVAL;return log[log.length-1].hours+REPEAT_INTERVAL;}
+function skiStatus(idx){
+  var hrs=parseFloat(APP.skiHours[idx]||0),worst='ok';
+  SERVICES.forEach(function(svc){var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];var diff=nextDue(log)-hrs;if(diff<=0)worst='overdue';else if(diff<=10&&worst==='ok')worst='due-soon';});
+  return worst;
+}
+function renderMaint(){
+  var html='<div style="margin-bottom:12px"><div style="font-family:\'Barlow Condensed\',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray)">Fleet · 25 Units</div></div>';
+  for(var i=0;i<25;i++){
+    var name=APP.skiNames[i]||('Ski '+(i+1));
+    var hrs=parseFloat(APP.skiHours[i]||0);
+    var status=skiStatus(i);
+    var pills='';
+    (function(idx){
+      SERVICES.forEach(function(svc){
+        var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
+        var due=nextDue(log),diff=due-hrs;
+        var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';
+        var label=diff<=0?SERVICE_NAMES[svc]+' OVERDUE':diff<=10?SERVICE_NAMES[svc]+' due in '+Math.round(diff)+'h':SERVICE_NAMES[svc]+' ✓';
+        pills+='<span class="pill '+cls+'">'+label+'</span>';
+      });
+    })(i);
+    html+='<div class="maint-ski-card '+status+'" id="mcard-'+i+'">'+
+      '<div class="maint-ski-row" onclick="togMaint('+i+')">'+
+      '<div class="maint-ski-num">'+(i+1)+'</div>'+
+      '<div class="maint-ski-info"><div class="maint-ski-name">'+name+'</div><div class="maint-ski-hrs">'+hrs+' hrs</div></div>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:4px;flex:1;justify-content:flex-end;padding-right:8px">'+pills+'</div>'+
+      '<div class="caret" style="font-size:18px;color:var(--gray);flex-shrink:0">⌄</div></div>'+
+      '<div class="maint-detail" id="mdet-'+i+'">'+
+      '<div class="maint-hrs-bar"><div class="maint-hrs-lbl">Current Hrs</div>'+
+      '<input class="maint-hrs-inp" id="mhrs-'+i+'" type="number" inputmode="decimal" value="'+hrs+'" placeholder="0">'+
+      '<button class="maint-hrs-save" onclick="saveHours('+i+')">Update</button></div>'+
+      renderServiceRows(i,hrs)+'</div></div>';
+  }
+  document.getElementById('maint-content').innerHTML=html;
+}
+
+function renderServiceRows(idx,hrs){
+  var html='';
+  SERVICES.forEach(function(svc){
+    var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
+    var due=nextDue(log),diff=due-hrs;
+    var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';
+    var dueText=diff<=0?'⚠️ Overdue by '+Math.abs(Math.round(diff))+'h':'Due at '+due+'h ('+Math.round(diff)+'h remaining)';
+    var lastText=log.length?'Last: '+log[log.length-1].date+' @ '+log[log.length-1].hours+'h by '+log[log.length-1].who:'Never serviced';
+    html+='<div class="service-row"><div><div class="service-name">'+SERVICE_NAMES[svc]+'</div><div class="service-info">'+lastText+'</div><div class="service-due '+cls+'">'+dueText+'</div></div>'+
+      '<button class="log-service-btn" onclick="openModal(\'service\','+idx+',\''+svc+'\')">Log</button></div>';
+    if(log.length){
+      html+='<div class="service-history"><div class="service-history-title">History</div>';
+      log.slice().reverse().slice(0,5).forEach(function(e){html+='<div class="service-history-row"><span>'+e.date+'</span><span>'+e.hours+'h · '+e.who+'</span></div>';});
+      html+='</div>';
+    }
+  });
+  return html;
+}
+
+function togMaint(i){document.getElementById('mcard-'+i).classList.toggle('open');}
+
+async function saveHours(idx){
+  var el=document.getElementById('mhrs-'+idx);if(!el)return;
+  var val=parseFloat(el.value);if(isNaN(val))return;
+  APP.skiHours[idx]=val;saveLocal();renderMaint();toast('Hours updated');
+  setSyn('spin','Saving…');
+  try{
+    var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
+    await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));
+    setSyn('ok','Synced');
+  }catch(e){setSyn('err','Save failed');}
+}
+
 // ── HISTORY ───────────────────────────────────────────────────────────────────
 function renderHistory(){
   var log=APP.history,el=document.getElementById('hist-log');
@@ -677,13 +654,13 @@ function renderHistory(){
 
 // ── ADMIN ─────────────────────────────────────────────────────────────────────
 function renderAdmin(){
-  updateAuthUI();
   var pages=['daily','mon','tue','wed','thu'];
   var labels={daily:'Daily',mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
   pages.forEach(function(page){
     var el=document.getElementById('adm-'+page);if(!el)return;
     el.innerHTML=(APP.tasks[page]||[]).map(function(t){
-      return '<div class="acard"><div class="acard-info"><div class="acard-name">'+t.name+'</div><div class="acard-meta">'+(t.freq||labels[page])+'</div></div>'+
+      var icons=(t.videoUrl?'📹 ':'' )+(t.photoUrl?'📷 ':'');
+      return '<div class="acard"><div class="acard-info"><div class="acard-name">'+icons+t.name+'</div><div class="acard-meta">'+(t.freq||labels[page])+'</div></div>'+
         '<div class="acard-acts"><button class="aact ea" onclick="openModal(\'task\',\''+page+'\',\''+t.id+'\')">Edit</button>'+
         '<button class="aact da" onclick="delTask(\''+page+'\',\''+t.id+'\')">Del</button></div></div>';
     }).join('');
@@ -694,16 +671,29 @@ function renderAdmin(){
 
 async function saveSkiNames(){
   APP.skiNames=APP.skiNames.map(function(_,i){return (document.getElementById('sn-'+i)||{}).value||'Ski '+(i+1);});
-  saveLocal();toast('Ski names saved');setSyn('spin','Saving…');await pushSkiNames2();setSyn('ok','Synced');
+  saveLocal();toast('Ski names saved');
+  setSyn('spin','Saving…');
+  try{await gasWrite('Ski Names',[['number','name']].concat(APP.skiNames.map(function(n,i){return [i+1,n];})));setSyn('ok','Synced');}
+  catch(e){setSyn('err','Save failed');}
 }
 async function delTask(page,id){
   if(!confirm('Delete this task?'))return;
   APP.tasks[page]=APP.tasks[page].filter(function(t){return t.id!==id;});
-  saveLocal();renderAdmin();renderPage(page);setSyn('spin','Saving…');await pushTaskTab(page);setSyn('ok','Synced');
+  saveLocal();renderAdmin();renderPage(page);
+  setSyn('spin','Saving…');
+  try{
+    var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
+    var tabMap={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+    await gasWrite(tabMap[page],[['id','name','note','freq','engineHours','videoUrl','photoUrl']].concat(APP.tasks[page].map(enc)));
+    setSyn('ok','Synced');
+  }catch(e){setSyn('err','Save failed');}
 }
 async function delMember(idx){
   if(APP.members.length<=1){alert('Must keep at least one member.');return;}
-  APP.members.splice(idx,1);saveLocal();renderAdmin();setSyn('spin','Saving…');await pushMembers();setSyn('ok','Synced');
+  APP.members.splice(idx,1);saveLocal();renderAdmin();
+  setSyn('spin','Saving…');
+  try{await gasWrite('Members',[['name']].concat(APP.members.map(function(m){return [m];})));setSyn('ok','Synced');}
+  catch(e){setSyn('err','Save failed');}
 }
 
 // ── MODAL ─────────────────────────────────────────────────────────────────────
@@ -712,9 +702,7 @@ function openModal(type,subtype,id){
   var body=document.getElementById('mbody');
   var pageLabels={daily:'Daily',mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
   if(type==='service'){
-    // subtype = ski index, id = service type
-    var idx=subtype; var svc=id;
-    var hrs=APP.skiHours[idx]||0;
+    var idx=subtype,svc=id,hrs=APP.skiHours[idx]||0;
     document.getElementById('mtitle').textContent='Log '+SERVICE_NAMES[svc]+' — '+(APP.skiNames[idx]||'Ski '+(idx+1));
     body.innerHTML='<div class="flbl">Hours at Service</div><input class="finp" id="msvc-hrs" type="number" inputmode="decimal" value="'+hrs+'" placeholder="Current hours">'+
       '<div class="flbl">Performed By</div><select class="fsel" id="msvc-who"><option value="">— Select —</option>'+APP.members.map(function(m){return '<option value="'+m+'">'+m+'</option>';}).join('')+'</select>';
@@ -723,7 +711,11 @@ function openModal(type,subtype,id){
     var freqField=subtype==='daily'?'<div class="flbl">Schedule</div><select class="fsel" id="mfreq"><option value="Daily · Morning"'+(task&&task.freq==='Daily · Morning'?' selected':'')+'>Daily · Morning</option><option value="Daily · Evening"'+(task&&task.freq==='Daily · Evening'?' selected':'')+'>Daily · Evening</option></select>':'';
     var ehField=subtype!=='daily'?'<div class="flbl">Engine Hours Task?</div><select class="fsel" id="meh"><option value="false"'+(task&&!task.engineHours?' selected':'')+'>No</option><option value="true"'+(task&&task.engineHours?' selected':'')+'>Yes — 25-ski grid</option></select>':'';
     document.getElementById('mtitle').textContent=(id?'Edit':'Add')+' '+(pageLabels[subtype]||subtype)+' Task';
-    body.innerHTML='<div class="flbl">Task Name</div><input class="finp" id="mn" value="'+(task?task.name:'')+'" placeholder="Task name"><div class="flbl">Notes</div><textarea class="finp" id="mnote" placeholder="Instructions…">'+(task?task.note:'')+'</textarea>'+freqField+ehField;
+    body.innerHTML='<div class="flbl">Task Name</div><input class="finp" id="mn" value="'+(task?task.name:'')+'" placeholder="Task name">'+
+      '<div class="flbl">Notes</div><textarea class="finp" id="mnote" placeholder="Instructions…">'+(task?task.note:'')+'</textarea>'+
+      freqField+ehField+
+      '<div class="flbl">📹 YouTube Video URL (optional)</div><input class="finp" id="mvidurl" value="'+(task&&task.videoUrl?task.videoUrl:'')+'" placeholder="https://youtube.com/watch?v=...">'+
+      '<div class="flbl">📷 Google Drive Photo URL (optional)</div><input class="finp" id="mphotourl" value="'+(task&&task.photoUrl?task.photoUrl:'')+'" placeholder="https://drive.google.com/file/d/...">';
   } else if(type==='member'){
     document.getElementById('mtitle').textContent='Add Team Member';
     body.innerHTML='<div class="flbl">Name</div><input class="finp" id="mm" placeholder="e.g. Marcus" autocorrect="off">';
@@ -750,30 +742,50 @@ async function modalSave(){
     APP.skiHours[idx]=hrs;
     saveLocal();closeModal();renderMaint();
     setSyn('spin','Saving…');
-    await appendMaintRow(idx,svc,entry.date,hrs,who);
-    await pushMaintToSheet();
-    setSyn('ok','Synced');
-    toast(SERVICE_NAMES[svc]+' logged ✓');
+    try{
+      await gasAppend('Maint Log',[idx,svc,entry.date,hrs,who]);
+      var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
+      await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));
+      setSyn('ok','Synced');toast(SERVICE_NAMES[svc]+' logged ✓');
+    }catch(e){setSyn('err','Save failed');}
   } else if(type==='task'){
     var name=(document.getElementById('mn')||{}).value.trim();
     var note=(document.getElementById('mnote')||{}).value.trim();
+    var videoUrl=(document.getElementById('mvidurl')||{}).value.trim();
+    var photoUrl=(document.getElementById('mphotourl')||{}).value.trim();
     if(!name){document.getElementById('mn').style.borderColor='var(--red)';return;}
     var freq=subtype==='daily'?document.getElementById('mfreq').value:'';
     var eh=subtype!=='daily'&&document.getElementById('meh')?document.getElementById('meh').value==='true':false;
-    if(id){var t=APP.tasks[subtype].filter(function(t){return t.id===id;})[0];t.name=name;t.note=note;if(freq)t.freq=freq;t.engineHours=eh;}
-    else APP.tasks[subtype].push({id:subtype[0]+Date.now().toString(36),name:name,note:note,freq:freq,engineHours:eh});
+    if(id){
+      var t=APP.tasks[subtype].filter(function(t){return t.id===id;})[0];
+      t.name=name;t.note=note;if(freq)t.freq=freq;t.engineHours=eh;t.videoUrl=videoUrl;t.photoUrl=photoUrl;
+    } else {
+      APP.tasks[subtype].push({id:subtype[0]+Date.now().toString(36),name:name,note:note,freq:freq,engineHours:eh,videoUrl:videoUrl,photoUrl:photoUrl});
+    }
     closeModal();saveLocal();renderAdmin();renderPage(subtype);
-    setSyn('spin','Saving…');await pushTaskTab(subtype);setSyn('ok','Synced');
+    setSyn('spin','Saving…');
+    try{
+      var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
+      var tabMap={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+      await gasWrite(tabMap[subtype],[['id','name','note','freq','engineHours','videoUrl','photoUrl']].concat(APP.tasks[subtype].map(enc)));
+      setSyn('ok','Synced');
+    }catch(e){setSyn('err','Save failed');}
   } else if(type==='member'){
     var nm=(document.getElementById('mm')||{}).value.trim();
     if(!nm){document.getElementById('mm').style.borderColor='var(--red)';return;}
     if(APP.members.indexOf(nm)===-1)APP.members.push(nm);
-    closeModal();saveLocal();renderAdmin();setSyn('spin','Saving…');await pushMembers();setSyn('ok','Synced');
+    closeModal();saveLocal();renderAdmin();
+    setSyn('spin','Saving…');
+    try{await gasWrite('Members',[['name']].concat(APP.members.map(function(m){return [m];})));setSyn('ok','Synced');}
+    catch(e){setSyn('err','Save failed');}
   } else {
     var p1=document.getElementById('mp1').value.trim(),p2=document.getElementById('mp2').value.trim();
     if(!/^\d{4}$/.test(p1)){alert('PIN must be 4 digits.');return;}
     if(p1!==p2){alert('PINs do not match.');return;}
-    APP.pin=p1;closeModal();saveLocal();toast('PIN updated');setSyn('spin','Saving…');await pushConfig();setSyn('ok','Synced');
+    APP.pin=p1;closeModal();saveLocal();toast('PIN updated');
+    setSyn('spin','Saving…');
+    try{await gasWrite('Config',[['pin',APP.pin]]);setSyn('ok','Synced');}
+    catch(e){setSyn('err','Save failed');}
   }
 }
 
@@ -799,19 +811,19 @@ function showPage(page){
 function highlightToday(){
   var today=todayPageKey();
   WDAYS.forEach(function(d){
-    var nb=document.getElementById('nav-'+d);if(nb)nb.classList.toggle('today-day',d===today);
     var tb=document.getElementById('tab-'+d);if(tb)tb.style.background=d===today?'rgba(72,202,228,.25)':'';
+    var nb=document.getElementById('nav-'+d);if(nb){nb.classList.toggle('today-day',d===today);if(d===today)nb.querySelector('.nlbl').style.color=nb.classList.contains('active')?'var(--ocean)':'var(--sky)';}
   });
 }
-function renderAll(){PAGES.forEach(function(p){if(p!=='admin')renderPage(p);});highlightToday();}
+function renderAll(){PAGES.forEach(function(p){if(p!=='admin')renderPage(p);});}
 function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show');},2500);}
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
-loadLocal();renderAll();highlightToday();
-function waitGoogle(cb,n){n=n||0;if(typeof google!=='undefined'&&google&&google.accounts&&google.accounts.oauth2){cb();}else if(n<40){setTimeout(function(){waitGoogle(cb,n+1);},200);}else{setSyn('err','Google failed to load');}}
-window.addEventListener('load',function(){waitGoogle(initGoogleAuth);});
-setInterval(function(){if(TOKEN){pullSheets().then(function(){renderAll();}).catch(function(e){console.error('Auto-refresh',e);});}},60000);
+loadLocal();
+renderAll();
+highlightToday();
+initSync();
+setInterval(function(){manualSync();},60000);
 </script>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 </body>
 </html>
