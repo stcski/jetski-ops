@@ -481,7 +481,7 @@ function fcomps(page){
 
 function renderPage(page){
   if(page==='history'){renderHistory();return;}
-  if(page==='admin'){renderAdmin();return;}
+  if(page==='admin'){renderAdmin();return;} // render admin on nav
   if(page==='maint'){renderMaint();return;}
   var tasks=APP.tasks[page]||[];var comps=fcomps(page);var done=Object.keys(comps).length;
   document.getElementById('pbar-'+page).style.width=(tasks.length?Math.round(done/tasks.length*100):0)+'%';
