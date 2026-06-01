@@ -143,6 +143,9 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .sinp{flex:1;border:none;outline:none;font-size:14px;font-weight:600;color:var(--dark);background:transparent;min-width:0;}
 .abtn{width:100%;background:#f0f4f8;color:var(--dark);border:1.5px solid var(--border);border-radius:10px;padding:12px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;display:block;text-align:center;text-decoration:none;}
 .alogout{width:100%;background:#f0f4f8;color:var(--gray);border:none;border-radius:10px;padding:13px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;}
+.drag-handle{font-size:18px;color:var(--gray);cursor:grab;padding:0 8px;flex-shrink:0;touch-action:none;}
+.acard.dragging{opacity:.4;border:1.5px dashed var(--ocean);}
+.acard.drag-over{border-color:var(--ocean);background:var(--foam);}
 .flbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:5px;}
 .finp{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;font-family:'Barlow',sans-serif;font-size:15px;color:var(--dark);background:var(--foam);outline:none;margin-bottom:14px;}
 .finp:focus{border-color:var(--ocean);background:#fff;}
@@ -665,15 +668,54 @@ function renderAdmin(){
   var labels={daily:'Daily',mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
   pages.forEach(function(page){
     var el=document.getElementById('adm-'+page);if(!el)return;
-    el.innerHTML=(APP.tasks[page]||[]).map(function(t){
+    el.innerHTML=(APP.tasks[page]||[]).map(function(t,idx){
       var icons=(t.videoUrl?'📹 ':'' )+(t.photoUrl?'📷 ':'');
-      return '<div class="acard"><div class="acard-info"><div class="acard-name">'+icons+t.name+'</div><div class="acard-meta">'+(t.freq||labels[page])+'</div></div>'+
+      return '<div class="acard" draggable="true" data-page="'+page+'" data-idx="'+idx+'" '+
+        'ondragstart="dragStart(event)" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dragDrop(event)">'+
+        '<div class="drag-handle">⠿</div>'+
+        '<div class="acard-info"><div class="acard-name">'+icons+t.name+'</div><div class="acard-meta">'+(t.freq||labels[page])+'</div></div>'+
         '<div class="acard-acts"><button class="aact ea" onclick="openModal(\'task\',\''+page+'\',\''+t.id+'\')">Edit</button>'+
         '<button class="aact da" onclick="delTask(\''+page+'\',\''+t.id+'\')">Del</button></div></div>';
     }).join('');
   });
   document.getElementById('adm-members').innerHTML='<div class="chips">'+APP.members.map(function(m,i){return '<div class="chip">'+m+'<button class="chipdel" onclick="delMember('+i+')">×</button></div>';}).join('')+'</div>';
   document.getElementById('adm-skinames').innerHTML=APP.skiNames.map(function(n,i){return '<div class="srow"><span class="snum">'+(i+1)+'</span><input class="sinp" id="sn-'+i+'" value="'+n+'" placeholder="Ski '+(i+1)+'"></div>';}).join('');
+}
+
+var _dragPage=null, _dragIdx=null;
+function dragStart(e){
+  _dragPage=e.currentTarget.dataset.page;
+  _dragIdx=parseInt(e.currentTarget.dataset.idx);
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed='move';
+}
+function dragOver(e){
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  var card=e.currentTarget;
+  if(card.dataset.page===_dragPage) card.classList.add('drag-over');
+}
+function dragLeave(e){e.currentTarget.classList.remove('drag-over');}
+async function dragDrop(e){
+  e.preventDefault();
+  var card=e.currentTarget;
+  card.classList.remove('drag-over');
+  var toIdx=parseInt(card.dataset.idx);
+  var page=card.dataset.page;
+  if(page!==_dragPage||toIdx===_dragIdx){document.querySelectorAll('.acard').forEach(function(c){c.classList.remove('dragging');});return;}
+  // Reorder
+  var tasks=APP.tasks[page];
+  var moved=tasks.splice(_dragIdx,1)[0];
+  tasks.splice(toIdx,0,moved);
+  document.querySelectorAll('.acard').forEach(function(c){c.classList.remove('dragging');});
+  saveLocal();renderAdmin();renderPage(page);
+  setSyn('spin','Saving…');
+  try{
+    var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
+    var tabMap={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+    await gasWrite(tabMap[page],[['id','name','note','freq','engineHours','videoUrl','photoUrl']].concat(tasks.map(enc)));
+    setSyn('ok','Synced');toast('Order saved ✓');
+  }catch(err){setSyn('err','Save failed');}
 }
 
 async function saveSkiNames(){
