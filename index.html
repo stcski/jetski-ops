@@ -28,6 +28,10 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;}
 .sec-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);}
 .sec-prog{font-size:12px;font-weight:600;color:var(--ocean);}
+.reminder-card{background:#fffbea;border:1.5px solid #f5c842;border-radius:14px;padding:14px 16px;margin-bottom:16px;}
+.reminder-card-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#b07d00;margin-bottom:8px;}
+.reminder-card ul{padding-left:16px;margin:0;}
+.reminder-card li{font-size:13px;color:#7a5500;line-height:1.6;font-weight:500;}
 .card{background:#fff;border-radius:14px;margin-bottom:8px;border:1.5px solid var(--border);overflow:hidden;}
 .card.done{border-color:#c8f0d8;background:#f6fef9;}
 .card-row{display:flex;align-items:center;padding:14px 16px;gap:14px;cursor:pointer;user-select:none;}
@@ -487,12 +491,25 @@ function renderPage(page){
   document.getElementById('pbar-'+page).style.width=(tasks.length?Math.round(done/tasks.length*100):0)+'%';
   var html=renderCOBar(page);
   if(page==='daily'){
-    var secs=[{t:'Morning Tasks',f:'Morning'},{t:'Evening Tasks',f:'Evening'}];
+    var MORNING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Start</div><ul>'+
+      '<li>Clock in no earlier than your assigned start time unless directed by a supervisor</li>'+
+      '<li>Be changed and ready to work at clock-in — not arriving to change</li>'+
+      '<li>Have eaten before your shift — we move fast from the start</li>'+
+      '<li>If you have a question about your start time, ask before the day begins</li>'+
+      '</ul></div>';
+    var EVENING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Clock Out</div><ul>'+
+      '<li>Complete all evening tasks before clocking out</li>'+
+      '<li>Do not clock out until all tasks are signed off or handed off to a supervisor</li>'+
+      '<li>Clock out <strong>before</strong> showering, dividing tips, or any other non-work activities</li>'+
+      '<li>Leave the dock cleaner than you found it</li>'+
+      '</ul></div>';
+    var secs=[{t:'Morning Tasks',f:'Morning',reminder:MORNING_REMINDER},{t:'Evening Tasks',f:'Evening',reminder:EVENING_REMINDER}];
     secs.forEach(function(s){
       var list=tasks.filter(function(t){return t.freq&&t.freq.indexOf(s.f)!==-1;});
       if(!list.length)return;
       var sd=list.filter(function(t){return comps[t.id];}).length;
       html+='<div class="sec"><div class="sec-hdr"><span class="sec-title">'+s.t+'</span><span class="sec-prog">'+sd+'/'+list.length+'</span></div>';
+      html+=s.reminder;
       list.forEach(function(t){html+=cardHTML(t,page,comps[t.id]);});
       html+='</div>';
     });
