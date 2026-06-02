@@ -866,6 +866,12 @@ renderAll();
 highlightToday();
 initSync();
 setInterval(function(){manualSync();},60000);
+
+// Sync when app comes back into focus
+document.addEventListener('visibilitychange',function(){
+  if(document.visibilityState==='visible') manualSync();
+});
+window.addEventListener('focus',function(){manualSync();});
 </script>
 </body>
 </html>
