@@ -11,7 +11,7 @@
 <title>Jet Ski Ops · NY</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap');
-:root{--ocean:#0077b6;--deep:#023e8a;--sky:#48cae4;--foam:#e0f4ff;--green:#2dc653;--red:#e63946;--orange:#f4845f;--yellow:#ffc107;--gray:#8d99ae;--dark:#0d1b2a;--border:#e2ecf5;--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);}
+:root{--ocean:#0077b6;--deep:#023e8a;--sky:#48cae4;--foam:#e0f4ff;--green:#2dc653;--red:#e63946;--gray:#8d99ae;--dark:#0d1b2a;--border:#e2ecf5;--st:env(safe-area-inset-top,0px);--sb:env(safe-area-inset-bottom,0px);}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-height:100vh;padding-bottom:calc(110px + var(--sb));}
 .hdr{background:linear-gradient(135deg,var(--deep),var(--ocean));padding:calc(var(--st)+16px) 20px 20px;position:sticky;top:0;z-index:100;}
@@ -52,10 +52,8 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .detail{display:none;padding:0 16px 14px;border-top:1px solid var(--border);}
 .card.open .detail{display:block;}
 .dnote{font-size:13px;color:#5a6a7a;line-height:1.5;margin-bottom:12px;padding-top:10px;}
-/* MEDIA */
 .task-photo{width:100%;border-radius:10px;margin-bottom:12px;max-height:220px;object-fit:cover;display:block;}
 .task-video{width:100%;border-radius:10px;margin-bottom:12px;aspect-ratio:16/9;border:none;}
-.media-btn{display:flex;align-items:center;gap:8px;background:var(--foam);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:12px;cursor:pointer;font-size:13px;font-weight:600;color:var(--ocean);text-decoration:none;width:100%;}
 .slbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
 .npicker{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
 .nbtn{border:2px solid var(--border);background:var(--foam);border-radius:10px;padding:12px 8px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--dark);cursor:pointer;text-align:center;}
@@ -80,12 +78,11 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .htask{flex:1;font-size:14px;font-weight:600;}
 .hwho{font-size:12px;color:var(--gray);}
 .htime{font-size:11px;color:var(--gray);flex-shrink:0;}
-/* MAINTENANCE */
-.maint-ski-card{background:#fff;border-radius:14px;margin-bottom:8px;border:1.5px solid var(--border);overflow:hidden;cursor:pointer;}
+.maint-ski-card{background:#fff;border-radius:14px;margin-bottom:8px;border:1.5px solid var(--border);overflow:hidden;}
 .maint-ski-card.overdue{border-color:#ffd5d5;}
 .maint-ski-card.due-soon{border-color:#ffe082;}
 .maint-ski-card.ok{border-color:#c8f0d8;}
-.maint-ski-row{display:flex;align-items:center;padding:14px 16px;gap:12px;}
+.maint-ski-row{display:flex;align-items:center;padding:14px 16px;gap:12px;cursor:pointer;}
 .maint-ski-num{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--ocean);width:36px;flex-shrink:0;text-align:center;}
 .maint-ski-info{flex:1;min-width:0;}
 .maint-ski-name{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:3px;}
@@ -99,39 +96,30 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .maint-ski-card.open .caret{transform:rotate(180deg);}
 .service-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
 .service-row:last-child{border-bottom:none;}
-.service-name{font-size:14px;font-weight:600;color:var(--dark);}
+.service-name{font-size:14px;font-weight:600;}
 .service-info{font-size:12px;color:var(--gray);margin-top:2px;}
 .service-due{font-size:12px;font-weight:700;}
 .service-due.overdue{color:var(--red);}
 .service-due.due-soon{color:#f57c00;}
 .service-due.ok{color:#2d6a4f;}
-.log-service-btn{background:var(--ocean);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.log-service-btn{background:var(--ocean);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
 .service-history{margin-top:10px;background:var(--foam);border-radius:10px;padding:10px 12px;}
 .service-history-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
-.service-history-row{font-size:12px;color:var(--dark);padding:3px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;}
+.service-history-row{font-size:12px;padding:3px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;}
 .service-history-row:last-child{border-bottom:none;}
 .maint-hrs-bar{display:flex;align-items:center;gap:10px;padding:12px 0 8px;}
 .maint-hrs-lbl{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--gray);white-space:nowrap;}
 .maint-hrs-inp{border:1.5px solid var(--border);border-radius:8px;padding:8px 10px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--dark);background:var(--foam);outline:none;width:100px;text-align:center;}
 .maint-hrs-save{background:var(--ocean);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
-/* ADMIN */
-.pin-screen{display:flex;flex-direction:column;align-items:center;padding:40px 20px;}
-.pin-title{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:var(--deep);margin-bottom:6px;}
-.pin-sub{font-size:14px;color:var(--gray);margin-bottom:32px;text-align:center;}
-.pdots{display:flex;gap:14px;margin-bottom:28px;}
-.pdot{width:16px;height:16px;border-radius:50%;border:2px solid var(--border);background:#fff;}
-.pdot.f{background:var(--ocean);border-color:var(--ocean);}
-.pdot.e{background:var(--red);border-color:var(--red);}
-.ppad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:240px;}
-.pkey{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:18px;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;color:var(--dark);cursor:pointer;text-align:center;user-select:none;}
-.pkey:active{background:var(--foam);transform:scale(.95);}
-.perr{font-size:13px;color:var(--red);font-weight:600;margin-top:16px;min-height:20px;text-align:center;}
 .adm{padding-top:4px;}
 .asec{margin-bottom:24px;}
 .asec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
 .asec-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--deep);}
 .addbtn{background:var(--ocean);color:#fff;border:none;border-radius:8px;padding:7px 14px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
 .acard{background:#fff;border-radius:12px;border:1.5px solid var(--border);margin-bottom:8px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px;}
+.acard.dragging{opacity:.4;border:1.5px dashed var(--ocean);}
+.acard.drag-over{border-color:var(--ocean);background:var(--foam);}
+.drag-handle{font-size:18px;color:var(--gray);cursor:grab;padding:0 4px;flex-shrink:0;}
 .acard-info{flex:1;min-width:0;}
 .acard-name{font-size:14px;font-weight:600;margin-bottom:2px;}
 .acard-meta{font-size:12px;color:var(--gray);}
@@ -147,10 +135,6 @@ body{font-family:'Barlow',sans-serif;background:#f0f7ff;color:var(--dark);min-he
 .snum{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--gray);width:24px;flex-shrink:0;}
 .sinp{flex:1;border:none;outline:none;font-size:14px;font-weight:600;color:var(--dark);background:transparent;min-width:0;}
 .abtn{width:100%;background:#f0f4f8;color:var(--dark);border:1.5px solid var(--border);border-radius:10px;padding:12px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;display:block;text-align:center;text-decoration:none;}
-.alogout{width:100%;background:#f0f4f8;color:var(--gray);border:none;border-radius:10px;padding:13px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;}
-.drag-handle{font-size:18px;color:var(--gray);cursor:grab;padding:0 8px;flex-shrink:0;touch-action:none;}
-.acard.dragging{opacity:.4;border:1.5px dashed var(--ocean);}
-.acard.drag-over{border-color:var(--ocean);background:var(--foam);}
 .flbl{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:5px;}
 .finp{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;font-family:'Barlow',sans-serif;font-size:15px;color:var(--dark);background:var(--foam);outline:none;margin-bottom:14px;}
 .finp:focus{border-color:var(--ocean);background:#fff;}
@@ -175,7 +159,6 @@ textarea.finp{resize:none;min-height:70px;}
 </style>
 </head>
 <body>
-
 <div class="hdr">
   <div class="hdr-top">
     <div><div class="brand">🌊 JET SKI OPS</div><span class="brand-sub">New York</span></div>
@@ -245,6 +228,7 @@ textarea.finp{resize:none;min-height:70px;}
 
 <script>
 var GAS_URL = 'https://script.google.com/macros/s/AKfycbwgTlTMTZdd1xIrmn87vZGsxkXdvkbWOHNvbTKED23eBXa_1MVI4Ua6nMjVdbYgkgHV1w/exec';
+var PROXY = 'https://api.allorigins.win/raw?url=';
 var PAGES = ['daily','mon','tue','wed','thu','maint','history','admin'];
 var TASK_PAGES = ['daily','mon','tue','wed','thu'];
 var WDAYS = ['mon','tue','wed','thu'];
@@ -253,7 +237,8 @@ var DMAP = {1:'mon',2:'tue',3:'wed',4:'thu',5:'fri',6:'sat',0:'sun'};
 var SERVICES = ['oil','filter','plugs'];
 var SERVICE_NAMES = {oil:'Oil Change',filter:'Filter Change',plugs:'Spark Plugs'};
 var FIRST_INTERVAL = 50, REPEAT_INTERVAL = 100;
-var _pin = '', _ctx = {};
+var _ctx = {};
+var _dragPage = null, _dragIdx = null;
 
 var APP = {
   tasks:{daily:[],mon:[],tue:[],wed:[],thu:[]},
@@ -294,13 +279,13 @@ var WT = {
   thu:[{id:'w9',name:'Full engine oil check',note:'Check oil level on each unit. Top off if needed.'},{id:'w10',name:'Check throttle & steering cables',note:'Test full range of motion on handlebars.'},{id:'w11',name:'Inspect impeller & jet pump',note:'Check for debris in intake grate.'},{id:'w12',name:'Power wash jet ski docks/floats',note:'Power wash floating docks. Remove algae.'},{id:'w13',name:'Charge marine radios at EOD',note:'Plug in all marine radios to charge overnight.'},{id:'w14',name:'Check contents of guide bags',note:'Verify guide bags have all required supplies.'}]
 };
 var DM = ['Ruth','Curtis','Zach','Adam'];
-var DSN = []; for(var i=1;i<=25;i++) DSN.push('Ski '+i);
+var DSN = []; for(var _i=1;_i<=25;_i++) DSN.push('Ski '+_i);
 
 // ── STORAGE ───────────────────────────────────────────────────────────────────
 function ls(k,v){if(v===undefined){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}else localStorage.setItem(k,JSON.stringify(v));}
-function saveLocal(){ls('jso4',APP);}
+function saveLocal(){ls('jso5',APP);}
 function loadLocal(){
-  var d=ls('jso4');
+  var d=ls('jso5');
   if(d){
     APP.tasks=d.tasks||{};
     APP.members=d.members&&d.members.length?d.members:DM;
@@ -316,86 +301,117 @@ function loadLocal(){
     APP.members=DM; APP.skiNames=DSN;
   }
 }
+
 function todayKey(){return new Date().toISOString().slice(0,10);}
 function weekKey(){var d=new Date(),j=new Date(d.getFullYear(),0,1);return d.getFullYear()+'-W'+Math.ceil(((d-j)/86400000+j.getDay()+1)/7);}
 function todayPageKey(){return DMAP[new Date().getDay()];}
 function subKey(page){return page==='daily'?todayKey():weekKey()+':'+page;}
 function ck(page,id){return page+':'+subKey(page)+':'+id;}
+function normDate(val){
+  if(!val) return '';
+  if(typeof val==='string') return val.slice(0,10);
+  if(val instanceof Date) return val.toISOString().slice(0,10);
+  if(typeof val==='number') return new Date(val).toISOString().slice(0,10);
+  return String(val).slice(0,10);
+}
 
-// ── APPS SCRIPT API (fetch via CORS proxy) ────────────────────────────────────
+// ── GAS API ───────────────────────────────────────────────────────────────────
 async function gasRead(tab){
-  var url='https://corsproxy.io/?'+encodeURIComponent(GAS_URL+'?action=read&tab='+encodeURIComponent(tab));
-  var r=await fetch(url);var d=await r.json();
-  if(d.error)throw new Error(d.error);
+  var url=PROXY+encodeURIComponent(GAS_URL+'?action=read&tab='+encodeURIComponent(tab));
+  var r=await fetch(url); var d=await r.json();
+  if(d.error) throw new Error(d.error);
   return d.values||[];
 }
 async function gasWrite(tab,data){
-  var url='https://corsproxy.io/?'+encodeURIComponent(GAS_URL+'?action=write&tab='+encodeURIComponent(tab)+'&data='+encodeURIComponent(JSON.stringify(data)));
-  var r=await fetch(url);var d=await r.json();
-  if(d.error)throw new Error(d.error);
+  var url=PROXY+encodeURIComponent(GAS_URL+'?action=write&tab='+encodeURIComponent(tab)+'&data='+encodeURIComponent(JSON.stringify(data)));
+  var r=await fetch(url); var d=await r.json();
+  if(d.error) throw new Error(d.error);
 }
 async function gasAppend(tab,row){
-  var url='https://corsproxy.io/?'+encodeURIComponent(GAS_URL+'?action=append&tab='+encodeURIComponent(tab)+'&row='+encodeURIComponent(JSON.stringify(row)));
-  var r=await fetch(url);var d=await r.json();
-  if(d.error)throw new Error(d.error);
+  var url=PROXY+encodeURIComponent(GAS_URL+'?action=append&tab='+encodeURIComponent(tab)+'&row='+encodeURIComponent(JSON.stringify(row)));
+  var r=await fetch(url); var d=await r.json();
+  if(d.error) throw new Error(d.error);
 }
 
 // ── SYNC ──────────────────────────────────────────────────────────────────────
 function setSyn(state,lbl){document.getElementById('sdot').className='sdot '+(state||'');document.getElementById('slbl').textContent=lbl;}
 
-async function initSync(){
-  setSyn('spin','Connecting…');
-  try{
-    await pullFromSheet();
-    setSyn('ok','Synced');
-    renderAll(); highlightToday();
-    toast('Connected ✓');
-  }catch(e){
-    console.error('initSync',e);
-    setSyn('err','Offline — local data');
-    renderAll(); highlightToday();
-  }
-}
-
 async function pullFromSheet(){
   var parseTask=function(r){return {id:r[0],name:r[1]||'',note:r[2]||'',freq:r[3]||'',engineHours:r[4]==='true',videoUrl:r[5]||'',photoUrl:r[6]||''};};
-  try{
-    var dt=await gasRead('Daily Tasks');
-    if(dt.length>1) APP.tasks.daily=dt.slice(1).filter(function(r){return r[0];}).map(parseTask);
-    var dayMap={mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
-    for(var day in dayMap){
-      var rows=await gasRead(dayMap[day]);
-      if(rows.length>1) APP.tasks[day]=rows.slice(1).filter(function(r){return r[0];}).map(parseTask);
-    }
-    var mb=await gasRead('Members');
-    if(mb.length>1) APP.members=mb.slice(1).map(function(r){return r[0];}).filter(Boolean);
-    var sn=await gasRead('Ski Names');
-    if(sn.length>1) APP.skiNames=sn.slice(1).map(function(r){return r[1]||r[0]||'';});
-    var cfg=await gasRead('Config');
-    if(cfg.length){var m={};cfg.forEach(function(r){if(r[0])m[r[0]]=r[1];});if(m.pin)APP.pin=m.pin;}
-    var today=todayKey(),wk=weekKey();
-    var co=await gasRead('Completions');
-    APP.completions={};
-    if(co.length>1) co.slice(1).forEach(function(r){if(r[0]&&(r[0].indexOf(today)!==-1||r[0].indexOf(wk)!==-1))APP.completions[r[0]]={who:r[1],time:r[2],hj:r[3]||''};});
-    var ht=await gasRead('History');
-    if(ht.length>1) APP.history=ht.slice(1).slice(0,200).map(function(r){return {date:r[0],time:r[1],taskId:r[2],taskName:r[3],who:r[4],type:r[5]||''};});
-    var sh=await gasRead('Ski Hours');
-    APP.skiHours={};
-    if(sh.length>1) sh.slice(1).forEach(function(r){if(r[0]!==undefined&&r[0]!=='')APP.skiHours[parseInt(r[0])]=parseFloat(r[1])||0;});
-    var ml=await gasRead('Maint Log');
-    APP.maintLog={};
-    if(ml.length>1) ml.slice(1).forEach(function(r){
-      var idx=parseInt(r[0]);var svc=r[1];
-      if(isNaN(idx)||!svc)return;
-      if(!APP.maintLog[idx])APP.maintLog[idx]={oil:[],filter:[],plugs:[]};
-      if(!APP.maintLog[idx][svc])APP.maintLog[idx][svc]=[];
-      APP.maintLog[idx][svc].push({date:r[2],hours:parseFloat(r[3])||0,who:r[4]||''});
+
+  var dt=await gasRead('Daily Tasks');
+  if(dt.length>1) APP.tasks.daily=dt.slice(1).filter(function(r){return r[0];}).map(parseTask);
+
+  var dayMap={mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+  for(var day in dayMap){
+    var rows=await gasRead(dayMap[day]);
+    if(rows.length>1) APP.tasks[day]=rows.slice(1).filter(function(r){return r[0];}).map(parseTask);
+  }
+
+  var mb=await gasRead('Members');
+  if(mb.length>1) APP.members=mb.slice(1).map(function(r){return r[0];}).filter(Boolean);
+
+  var sn=await gasRead('Ski Names');
+  if(sn.length>1) APP.skiNames=sn.slice(1).map(function(r){return r[1]||r[0]||'';});
+
+  var today=todayKey(), wk=weekKey();
+
+  // Read completions
+  var co=await gasRead('Completions');
+  APP.completions={};
+  if(co.length>1) co.slice(1).forEach(function(r){
+    if(r[0]&&(r[0].indexOf(today)!==-1||r[0].indexOf(wk)!==-1))
+      APP.completions[r[0]]={who:r[1],time:r[2],hj:r[3]||''};
+  });
+
+  // Read history and rebuild today's completions as fallback
+  var ht=await gasRead('History');
+  if(ht.length>1){
+    APP.history=ht.slice(1).slice(0,200).map(function(r){return {date:normDate(r[0]),time:r[1],taskId:r[2],taskName:r[3],who:r[4],type:r[5]||''};});
+    // Rebuild completions from history for today
+    ht.slice(1).forEach(function(r){
+      var dateStr=normDate(r[0]);
+      if(dateStr!==today) return;
+      var taskId=r[2], who=r[4], time=r[1], type=r[5]||'daily';
+      if(!taskId||!who) return;
+      var sub=type==='daily'?today:wk+':'+type;
+      var key=type+':'+sub+':'+taskId;
+      if(!APP.completions[key]) APP.completions[key]={who:who,time:time,hj:''};
     });
-    saveLocal();
-    // push defaults if empty
-    var isEmpty=dt.length<=1&&mb.length<=1;
-    if(isEmpty) await pushAll();
-  }catch(e){throw e;}
+  }
+
+  // Ski hours
+  var sh=await gasRead('Ski Hours');
+  APP.skiHours={};
+  if(sh.length>1) sh.slice(1).forEach(function(r){if(r[0]!==''&&r[0]!==undefined) APP.skiHours[parseInt(r[0])]=parseFloat(r[1])||0;});
+
+  // Maint log
+  var ml=await gasRead('Maint Log');
+  APP.maintLog={};
+  if(ml.length>1) ml.slice(1).forEach(function(r){
+    var idx=parseInt(r[0]); var svc=r[1];
+    if(isNaN(idx)||!svc) return;
+    if(!APP.maintLog[idx]) APP.maintLog[idx]={oil:[],filter:[],plugs:[]};
+    if(!APP.maintLog[idx][svc]) APP.maintLog[idx][svc]=[];
+    APP.maintLog[idx][svc].push({date:normDate(r[2]),hours:parseFloat(r[3])||0,who:r[4]||''});
+  });
+
+  saveLocal();
+
+  var isEmpty=dt.length<=1&&mb.length<=1;
+  if(isEmpty) await pushAll();
+}
+
+async function initSync(){
+  setSyn('spin','Connecting…');
+  try{await pullFromSheet();setSyn('ok','Synced');renderAll();highlightToday();toast('Connected ✓');}
+  catch(e){console.error('initSync',e);setSyn('err','Offline — local data');renderAll();highlightToday();}
+}
+
+async function manualSync(){
+  setSyn('spin','Syncing…');
+  try{await pullFromSheet();setSyn('ok','Synced');renderAll();}
+  catch(e){setSyn('err','Sync failed');}
 }
 
 async function pushAll(){
@@ -410,24 +426,19 @@ async function pushAll(){
     await gasWrite('Thu Tasks',[hdr].concat(APP.tasks.thu.map(enc)));
     await gasWrite('Members',[['name']].concat(APP.members.map(function(m){return [m];})));
     await gasWrite('Ski Names',[['number','name']].concat(APP.skiNames.map(function(n,i){return [i+1,n];})));
-    await gasWrite('Config',[['pin',APP.pin]]);
     var cRows=Object.keys(APP.completions).map(function(k){var v=APP.completions[k];return [k,v.who,v.time,v.hj||''];});
     await gasWrite('Completions',[['key','who','time','hours']].concat(cRows));
     await gasWrite('History',[['date','time','taskId','taskName','who','type']].concat(APP.history.map(function(e){return [e.date,e.time,e.taskId,e.taskName,e.who,e.type||''];})));
     var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
     await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));
     var mRows=[];
-    Object.keys(APP.maintLog).forEach(function(idx){var skiLog=APP.maintLog[idx];SERVICES.forEach(function(svc){(skiLog[svc]||[]).forEach(function(e){mRows.push([parseInt(idx),svc,e.date,e.hours,e.who]);});});});
+    Object.keys(APP.maintLog).forEach(function(idx){
+      var skiLog=APP.maintLog[idx];
+      SERVICES.forEach(function(svc){(skiLog[svc]||[]).forEach(function(e){mRows.push([parseInt(idx),svc,e.date,e.hours,e.who]);});});
+    });
     await gasWrite('Maint Log',[['skiIdx','service','date','hours','who']].concat(mRows));
-    setSyn('ok','Synced');
-    toast('All data saved ✓');
+    setSyn('ok','Synced'); toast('All data saved ✓');
   }catch(e){console.error(e);setSyn('err','Save failed');}
-}
-
-async function manualSync(){
-  setSyn('spin','Syncing…');
-  try{await pullFromSheet();setSyn('ok','Synced');renderAll();toast('Synced ✓');}
-  catch(e){setSyn('err','Sync failed');}
 }
 
 // ── SIGN OFF ──────────────────────────────────────────────────────────────────
@@ -438,7 +449,7 @@ async function doSignOff(page,taskId,taskName,who,hj){
   var entry={date:todayKey(),time:time,taskId:taskId,taskName:taskName,who:who,type:page==='daily'?'daily':'weekly'};
   APP.history.unshift(entry);
   if(APP.history.length>500) APP.history=APP.history.slice(0,500);
-  saveLocal();renderPage(page);renderHistory();
+  saveLocal(); renderPage(page); renderHistory();
   setSyn('spin','Saving…');
   try{
     await gasAppend('Completions',[key,who,time,hj||'']);
@@ -449,7 +460,7 @@ async function doSignOff(page,taskId,taskName,who,hj){
 
 async function undoTask(page,taskId){
   delete APP.completions[ck(page,taskId)];
-  saveLocal();renderPage(page);renderHistory();
+  saveLocal(); renderPage(page); renderHistory();
   setSyn('spin','Saving…');
   try{
     var cRows=Object.keys(APP.completions).map(function(k){var v=APP.completions[k];return [k,v.who,v.time,v.hj||''];});
@@ -461,14 +472,14 @@ async function undoTask(page,taskId){
 // ── CO BAR ────────────────────────────────────────────────────────────────────
 function coKey(page){return 'co:'+page+':'+subKey(page);}
 function renderCOBar(page){
-  var key=coKey(page);var saved=APP.completions[key]?APP.completions[key].who:'';
+  var key=coKey(page); var saved=APP.completions[key]?APP.completions[key].who:'';
   var opts=APP.members.map(function(m){return '<option value="'+m+'"'+(saved===m?' selected':'')+'>'+m+'</option>';}).join('');
   return '<div class="co-bar"><div class="co-lbl">Conning Officer</div><select class="co-sel" id="co-'+page+'" onchange="saveCO(\''+page+'\')"><option value="">— Select —</option>'+opts+'</select></div>';
 }
 async function saveCO(page){
-  var sel=document.getElementById('co-'+page);if(!sel||!sel.value)return;
-  var key=coKey(page);var time=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  APP.completions[key]={who:sel.value,time:time,hj:''};saveLocal();
+  var sel=document.getElementById('co-'+page); if(!sel||!sel.value) return;
+  var key=coKey(page); var time=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  APP.completions[key]={who:sel.value,time:time,hj:''}; saveLocal();
   try{await gasAppend('Completions',[key,sel.value,time,'']);}catch(e){}
 }
 
@@ -479,33 +490,33 @@ function fcomps(page){
   return out;
 }
 
+var MORNING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Start</div><ul>'+
+  '<li>Clock in no earlier than your assigned start time unless directed by a supervisor</li>'+
+  '<li>Be changed and ready to work at clock-in — not arriving to change</li>'+
+  '<li>Have eaten before your shift — we move fast from the start</li>'+
+  '<li>If you have a question about your start time, ask before the day begins</li>'+
+  '</ul></div>';
+var EVENING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Clock Out</div><ul>'+
+  '<li>Complete all evening tasks before clocking out</li>'+
+  '<li>Do not clock out until all tasks are signed off or handed off to a supervisor</li>'+
+  '<li>Clock out <strong>before</strong> showering, dividing tips, or any other non-work activities</li>'+
+  '<li>Leave the dock cleaner than you found it</li>'+
+  '</ul></div>';
+
 function renderPage(page){
   if(page==='history'){renderHistory();return;}
-  if(page==='admin'){renderAdmin();return;} // render admin on nav
+  if(page==='admin'){renderAdmin();return;}
   if(page==='maint'){renderMaint();return;}
-  var tasks=APP.tasks[page]||[];var comps=fcomps(page);var done=Object.keys(comps).length;
+  var tasks=APP.tasks[page]||[]; var comps=fcomps(page); var done=Object.keys(comps).length;
   document.getElementById('pbar-'+page).style.width=(tasks.length?Math.round(done/tasks.length*100):0)+'%';
   var html=renderCOBar(page);
   if(page==='daily'){
-    var MORNING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Start</div><ul>'+
-      '<li>Clock in no earlier than your assigned start time unless directed by a supervisor</li>'+
-      '<li>Be changed and ready to work at clock-in — not arriving to change</li>'+
-      '<li>Have eaten before your shift — we move fast from the start</li>'+
-      '<li>If you have a question about your start time, ask before the day begins</li>'+
-      '</ul></div>';
-    var EVENING_REMINDER='<div class="reminder-card"><div class="reminder-card-title">📋 Before You Clock Out</div><ul>'+
-      '<li>Complete all evening tasks before clocking out</li>'+
-      '<li>Do not clock out until all tasks are signed off or handed off to a supervisor</li>'+
-      '<li>Clock out <strong>before</strong> showering, dividing tips, or any other non-work activities</li>'+
-      '<li>Leave the dock cleaner than you found it</li>'+
-      '</ul></div>';
-    var secs=[{t:'Morning Tasks',f:'Morning',reminder:MORNING_REMINDER},{t:'Evening Tasks',f:'Evening',reminder:EVENING_REMINDER}];
+    var secs=[{t:'Morning Tasks',f:'Morning',r:MORNING_REMINDER},{t:'Evening Tasks',f:'Evening',r:EVENING_REMINDER}];
     secs.forEach(function(s){
       var list=tasks.filter(function(t){return t.freq&&t.freq.indexOf(s.f)!==-1;});
-      if(!list.length)return;
+      if(!list.length) return;
       var sd=list.filter(function(t){return comps[t.id];}).length;
-      html+='<div class="sec"><div class="sec-hdr"><span class="sec-title">'+s.t+'</span><span class="sec-prog">'+sd+'/'+list.length+'</span></div>';
-      html+=s.reminder;
+      html+='<div class="sec"><div class="sec-hdr"><span class="sec-title">'+s.t+'</span><span class="sec-prog">'+sd+'/'+list.length+'</span></div>'+s.r;
       list.forEach(function(t){html+=cardHTML(t,page,comps[t.id]);});
       html+='</div>';
     });
@@ -516,16 +527,8 @@ function renderPage(page){
   document.getElementById('tasks-'+page).innerHTML=html;
 }
 
-function getYouTubeId(url){
-  if(!url)return null;
-  var m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
-  return m?m[1]:null;
-}
-function getDriveId(url){
-  if(!url)return null;
-  var m=url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  return m?m[1]:null;
-}
+function getYouTubeId(url){if(!url)return null;var m=url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);return m?m[1]:null;}
+function getDriveId(url){if(!url)return null;var m=url.match(/\/d\/([a-zA-Z0-9_-]+)/);return m?m[1]:null;}
 
 function cardHTML(task,page,comp){
   var isDone=!!comp;
@@ -533,28 +536,24 @@ function cardHTML(task,page,comp){
   var nbtns=APP.members.map(function(n){return '<button class="nbtn" onclick="selName(\''+page+'\',\''+task.id+'\',\''+sn+'\',\''+n+'\',this)">'+n+'</button>';}).join('');
   var hgrid=task.engineHours?buildHGrid(task.id,isDone,comp):'';
   var meta=isDone?'✓ '+comp.who+' · '+comp.time:(task.freq||WDAY_NAMES[page]||'');
-
-  // Media
+  var ytId=getYouTubeId(task.videoUrl||''); var driveId=getDriveId(task.photoUrl||'');
   var mediaHtml='';
-  var ytId=getYouTubeId(task.videoUrl||'');
-  var driveId=getDriveId(task.photoUrl||'');
   if(ytId) mediaHtml+='<iframe class="task-video" src="https://www.youtube.com/embed/'+ytId+'" allowfullscreen></iframe>';
   if(driveId) mediaHtml+='<img class="task-photo" src="https://drive.google.com/thumbnail?id='+driveId+'&sz=w800" alt="Task reference" onerror="this.style.display=\'none\'">';
-
+  var mediaBadge=(task.videoUrl?' · 📹':'')+(task.photoUrl?' · 📷':'');
   return '<div class="card'+(isDone?' done':'')+'" id="card-'+task.id+'">'+
-    '<div class="card-row" onclick="tog(\''+task.id+'\')"><div class="chk">'+(isDone?'✓':'')+(task.videoUrl||task.photoUrl?'<span style="position:absolute;font-size:8px;margin-top:16px;margin-left:-6px">'+(task.videoUrl?'▶':'')+(task.photoUrl?'📷':'')+'</span>':'')+'</div>'+
-    '<div class="ci"><div class="cn">'+task.name+'</div><div class="cm">'+meta+(task.videoUrl?' · 📹':'')+(task.photoUrl?' · 📷':'')+'</div></div>'+
+    '<div class="card-row" onclick="tog(\''+task.id+'\')"><div class="chk">'+(isDone?'✓':'')+'</div>'+
+    '<div class="ci"><div class="cn">'+task.name+'</div><div class="cm">'+meta+mediaBadge+'</div></div>'+
     '<div class="caret">⌄</div></div>'+
     '<div class="detail" id="det-'+task.id+'">'+
-    (task.note?'<div class="dnote">'+task.note+'</div>':'')+
-    mediaHtml+hgrid+
+    (task.note?'<div class="dnote">'+task.note+'</div>':'')+mediaHtml+hgrid+
     '<div class="slbl">Sign Off</div>'+
     (isDone?'<div class="dby">✅ '+comp.who+' · '+comp.time+'</div><button class="undobtn" onclick="undoTask(\''+page+'\',\''+task.id+'\')">Undo Sign-Off</button>'
     :'<div class="npicker" id="np-'+task.id+'">'+nbtns+'</div><button class="cfmbtn" id="cfm-'+task.id+'"></button>')+'</div></div>';
 }
 
 function buildHGrid(tid,isDone,comp){
-  var hours={};if(isDone&&comp&&comp.hj){try{hours=JSON.parse(comp.hj);}catch(e){}}
+  var hours={}; if(isDone&&comp&&comp.hj){try{hours=JSON.parse(comp.hj);}catch(e){}}
   var h='<div class="hgrid">';
   for(var i=1;i<=25;i++){h+='<div class="hbox"><div class="hlbl">'+(APP.skiNames[i-1]||'Ski '+i)+'</div><input class="hinp" id="hr-'+tid+'-'+i+'" type="number" inputmode="decimal" placeholder="—" value="'+(hours[i]||'')+'"'+(isDone?' disabled':'')+'/></div>';}
   return h+'</div>';
@@ -562,9 +561,9 @@ function buildHGrid(tid,isDone,comp){
 function getHours(tid){var h={};for(var i=1;i<=25;i++){var el=document.getElementById('hr-'+tid+'-'+i);if(el&&el.value)h[i]=el.value;}return Object.keys(h).length?JSON.stringify(h):'';}
 function tog(id){document.getElementById('card-'+id).classList.toggle('open');}
 function selName(page,tid,taskName,name,btn){
-  var np=document.getElementById('np-'+tid);np.querySelectorAll('.nbtn').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');
-  var cb=document.getElementById('cfm-'+tid);cb.className='cfmbtn show';cb.textContent='✓ Sign off as '+name;
-  var allTasks=[];TASK_PAGES.forEach(function(p){if(APP.tasks[p])allTasks=allTasks.concat(APP.tasks[p]);});
+  var np=document.getElementById('np-'+tid); np.querySelectorAll('.nbtn').forEach(function(b){b.classList.remove('sel');}); btn.classList.add('sel');
+  var cb=document.getElementById('cfm-'+tid); cb.className='cfmbtn show'; cb.textContent='✓ Sign off as '+name;
+  var allTasks=[]; TASK_PAGES.forEach(function(p){if(APP.tasks[p])allTasks=allTasks.concat(APP.tasks[p]);});
   var task=allTasks.filter(function(t){return t.id===tid;})[0];
   cb.onclick=function(){doSignOff(page,tid,taskName,name,task&&task.engineHours?getHours(tid):'');};
 }
@@ -577,21 +576,13 @@ function skiStatus(idx){
   return worst;
 }
 function renderMaint(){
-  var html='<div style="margin-bottom:12px"><div style="font-family:\'Barlow Condensed\',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray)">Fleet · 25 Units</div></div>';
+  var html='<div style="margin-bottom:12px"><span style="font-family:\'Barlow Condensed\',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray)">Fleet · 25 Units</span></div>';
   for(var i=0;i<25;i++){
     var name=APP.skiNames[i]||('Ski '+(i+1));
     var hrs=parseFloat(APP.skiHours[i]||0);
     var status=skiStatus(i);
     var pills='';
-    (function(idx){
-      SERVICES.forEach(function(svc){
-        var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];
-        var due=nextDue(log),diff=due-hrs;
-        var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';
-        var label=diff<=0?SERVICE_NAMES[svc]+' OVERDUE':diff<=10?SERVICE_NAMES[svc]+' due in '+Math.round(diff)+'h':SERVICE_NAMES[svc]+' ✓';
-        pills+='<span class="pill '+cls+'">'+label+'</span>';
-      });
-    })(i);
+    (function(idx){SERVICES.forEach(function(svc){var log=(APP.maintLog[idx]&&APP.maintLog[idx][svc])||[];var due=nextDue(log),diff=due-hrs;var cls=diff<=0?'overdue':diff<=10?'due-soon':'ok';var label=diff<=0?SERVICE_NAMES[svc]+' OVERDUE':diff<=10?SERVICE_NAMES[svc]+' due in '+Math.round(diff)+'h':SERVICE_NAMES[svc]+' ✓';pills+='<span class="pill '+cls+'">'+label+'</span>';});})(i);
     html+='<div class="maint-ski-card '+status+'" id="mcard-'+i+'">'+
       '<div class="maint-ski-row" onclick="togMaint('+i+')">'+
       '<div class="maint-ski-num">'+(i+1)+'</div>'+
@@ -606,7 +597,6 @@ function renderMaint(){
   }
   document.getElementById('maint-content').innerHTML=html;
 }
-
 function renderServiceRows(idx,hrs){
   var html='';
   SERVICES.forEach(function(svc){
@@ -617,27 +607,18 @@ function renderServiceRows(idx,hrs){
     var lastText=log.length?'Last: '+log[log.length-1].date+' @ '+log[log.length-1].hours+'h by '+log[log.length-1].who:'Never serviced';
     html+='<div class="service-row"><div><div class="service-name">'+SERVICE_NAMES[svc]+'</div><div class="service-info">'+lastText+'</div><div class="service-due '+cls+'">'+dueText+'</div></div>'+
       '<button class="log-service-btn" onclick="openModal(\'service\','+idx+',\''+svc+'\')">Log</button></div>';
-    if(log.length){
-      html+='<div class="service-history"><div class="service-history-title">History</div>';
-      log.slice().reverse().slice(0,5).forEach(function(e){html+='<div class="service-history-row"><span>'+e.date+'</span><span>'+e.hours+'h · '+e.who+'</span></div>';});
-      html+='</div>';
-    }
+    if(log.length){html+='<div class="service-history"><div class="service-history-title">History</div>';log.slice().reverse().slice(0,5).forEach(function(e){html+='<div class="service-history-row"><span>'+e.date+'</span><span>'+e.hours+'h · '+e.who+'</span></div>';});html+='</div>';}
   });
   return html;
 }
-
 function togMaint(i){document.getElementById('mcard-'+i).classList.toggle('open');}
-
 async function saveHours(idx){
-  var el=document.getElementById('mhrs-'+idx);if(!el)return;
-  var val=parseFloat(el.value);if(isNaN(val))return;
-  APP.skiHours[idx]=val;saveLocal();renderMaint();toast('Hours updated');
+  var el=document.getElementById('mhrs-'+idx); if(!el)return;
+  var val=parseFloat(el.value); if(isNaN(val))return;
+  APP.skiHours[idx]=val; saveLocal(); renderMaint(); toast('Hours updated');
   setSyn('spin','Saving…');
-  try{
-    var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});
-    await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));
-    setSyn('ok','Synced');
-  }catch(e){setSyn('err','Save failed');}
+  try{var hRows=Object.keys(APP.skiHours).map(function(k){return [parseInt(k),APP.skiHours[k]];});await gasWrite('Ski Hours',[['skiIdx','hours']].concat(hRows));setSyn('ok','Synced');}
+  catch(e){setSyn('err','Save failed');}
 }
 
 // ── HISTORY ───────────────────────────────────────────────────────────────────
@@ -647,7 +628,7 @@ function renderHistory(){
   var byDate={};log.forEach(function(e){(byDate[e.date]=byDate[e.date]||[]).push(e);});
   var html='';
   Object.keys(byDate).forEach(function(date){
-    var entries=byDate[date];var d=new Date(date+'T12:00:00');
+    var entries=byDate[date]; var d=new Date(date+'T12:00:00');
     html+='<div class="hday"><div class="hday-hdr">'+d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})+'</div>';
     entries.forEach(function(e){html+='<div class="hentry"><div class="hdot'+(e.type==='weekly'?' w':'')+'"></div><div class="ci"><div class="htask">'+e.taskName+'</div><div class="hwho">'+e.who+'</div></div><div class="htime">'+e.time+'</div></div>';});
     html+='</div>';
@@ -660,9 +641,9 @@ function renderAdmin(){
   var pages=['daily','mon','tue','wed','thu'];
   var labels={daily:'Daily',mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday'};
   pages.forEach(function(page){
-    var el=document.getElementById('adm-'+page);if(!el)return;
+    var el=document.getElementById('adm-'+page); if(!el)return;
     el.innerHTML=(APP.tasks[page]||[]).map(function(t,idx){
-      var icons=(t.videoUrl?'📹 ':'' )+(t.photoUrl?'📷 ':'');
+      var icons=(t.videoUrl?'📹 ':'')+(t.photoUrl?'📷 ':'');
       return '<div class="acard" draggable="true" data-page="'+page+'" data-idx="'+idx+'" '+
         'ondragstart="dragStart(event)" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dragDrop(event)">'+
         '<div class="drag-handle">⠿</div>'+
@@ -675,32 +656,15 @@ function renderAdmin(){
   document.getElementById('adm-skinames').innerHTML=APP.skiNames.map(function(n,i){return '<div class="srow"><span class="snum">'+(i+1)+'</span><input class="sinp" id="sn-'+i+'" value="'+n+'" placeholder="Ski '+(i+1)+'"></div>';}).join('');
 }
 
-var _dragPage=null, _dragIdx=null;
-function dragStart(e){
-  _dragPage=e.currentTarget.dataset.page;
-  _dragIdx=parseInt(e.currentTarget.dataset.idx);
-  e.currentTarget.classList.add('dragging');
-  e.dataTransfer.effectAllowed='move';
-}
-function dragOver(e){
-  e.preventDefault();
-  e.dataTransfer.dropEffect='move';
-  var card=e.currentTarget;
-  if(card.dataset.page===_dragPage) card.classList.add('drag-over');
-}
+function dragStart(e){_dragPage=e.currentTarget.dataset.page;_dragIdx=parseInt(e.currentTarget.dataset.idx);e.currentTarget.classList.add('dragging');e.dataTransfer.effectAllowed='move';}
+function dragOver(e){e.preventDefault();e.dataTransfer.dropEffect='move';if(e.currentTarget.dataset.page===_dragPage)e.currentTarget.classList.add('drag-over');}
 function dragLeave(e){e.currentTarget.classList.remove('drag-over');}
 async function dragDrop(e){
-  e.preventDefault();
-  var card=e.currentTarget;
-  card.classList.remove('drag-over');
-  var toIdx=parseInt(card.dataset.idx);
-  var page=card.dataset.page;
-  if(page!==_dragPage||toIdx===_dragIdx){document.querySelectorAll('.acard').forEach(function(c){c.classList.remove('dragging');});return;}
-  // Reorder
-  var tasks=APP.tasks[page];
-  var moved=tasks.splice(_dragIdx,1)[0];
-  tasks.splice(toIdx,0,moved);
+  e.preventDefault();var card=e.currentTarget;card.classList.remove('drag-over');
+  var toIdx=parseInt(card.dataset.idx),page=card.dataset.page;
   document.querySelectorAll('.acard').forEach(function(c){c.classList.remove('dragging');});
+  if(page!==_dragPage||toIdx===_dragIdx)return;
+  var tasks=APP.tasks[page],moved=tasks.splice(_dragIdx,1)[0];tasks.splice(toIdx,0,moved);
   saveLocal();renderAdmin();renderPage(page);
   setSyn('spin','Saving…');
   try{
@@ -749,7 +713,7 @@ function openModal(type,subtype,id){
     body.innerHTML='<div class="flbl">Hours at Service</div><input class="finp" id="msvc-hrs" type="number" inputmode="decimal" value="'+hrs+'" placeholder="Current hours">'+
       '<div class="flbl">Performed By</div><select class="fsel" id="msvc-who"><option value="">— Select —</option>'+APP.members.map(function(m){return '<option value="'+m+'">'+m+'</option>';}).join('')+'</select>';
   } else if(type==='task'){
-    var tasks=APP.tasks[subtype]||[];var task=id?tasks.filter(function(t){return t.id===id;})[0]:null;
+    var tasks=APP.tasks[subtype]||[]; var task=id?tasks.filter(function(t){return t.id===id;})[0]:null;
     var freqField=subtype==='daily'?'<div class="flbl">Schedule</div><select class="fsel" id="mfreq"><option value="Daily · Morning"'+(task&&task.freq==='Daily · Morning'?' selected':'')+'>Daily · Morning</option><option value="Daily · Evening"'+(task&&task.freq==='Daily · Evening'?' selected':'')+'>Daily · Evening</option></select>':'';
     var ehField=subtype!=='daily'?'<div class="flbl">Engine Hours Task?</div><select class="fsel" id="meh"><option value="false"'+(task&&!task.engineHours?' selected':'')+'>No</option><option value="true"'+(task&&task.engineHours?' selected':'')+'>Yes — 25-ski grid</option></select>':'';
     document.getElementById('mtitle').textContent=(id?'Edit':'Add')+' '+(pageLabels[subtype]||subtype)+' Task';
@@ -763,7 +727,7 @@ function openModal(type,subtype,id){
     body.innerHTML='<div class="flbl">Name</div><input class="finp" id="mm" placeholder="e.g. Marcus" autocorrect="off">';
   } else {
     document.getElementById('mtitle').textContent='Change PIN';
-    body.innerHTML='<div class="flbl">New PIN (4 digits)</div><input class="finp" id="mp1" type="tel" maxlength="4" placeholder="e.g. 5678" inputmode="numeric"><div class="flbl">Confirm PIN</div><input class="finp" id="mp2" type="tel" maxlength="4" placeholder="Repeat PIN" inputmode="numeric">';
+    body.innerHTML='<div class="flbl">New PIN (4 digits)</div><input class="finp" id="mp1" type="tel" maxlength="4" inputmode="numeric"><div class="flbl">Confirm PIN</div><input class="finp" id="mp2" type="tel" maxlength="4" inputmode="numeric">';
   }
   document.getElementById('moverlay').classList.add('open');
   setTimeout(function(){var f=body.querySelector('input,textarea,select');if(f)f.focus();},150);
@@ -796,20 +760,16 @@ async function modalSave(){
     var videoUrl=(document.getElementById('mvidurl')||{}).value.trim();
     var photoUrl=(document.getElementById('mphotourl')||{}).value.trim();
     if(!name){document.getElementById('mn').style.borderColor='var(--red)';return;}
-    var freq=subtype==='daily'?document.getElementById('mfreq').value:'';
-    var eh=subtype!=='daily'&&document.getElementById('meh')?document.getElementById('meh').value==='true':false;
-    if(id){
-      var t=APP.tasks[subtype].filter(function(t){return t.id===id;})[0];
-      t.name=name;t.note=note;if(freq)t.freq=freq;t.engineHours=eh;t.videoUrl=videoUrl;t.photoUrl=photoUrl;
-    } else {
-      APP.tasks[subtype].push({id:subtype[0]+Date.now().toString(36),name:name,note:note,freq:freq,engineHours:eh,videoUrl:videoUrl,photoUrl:photoUrl});
-    }
+    var freq=subtype==='daily'?(document.getElementById('mfreq')||{}).value:'';
+    var eh=subtype!=='daily'&&document.getElementById('meh')?(document.getElementById('meh')||{}).value==='true':false;
+    if(id){var t=APP.tasks[subtype].filter(function(t){return t.id===id;})[0];t.name=name;t.note=note;if(freq)t.freq=freq;t.engineHours=eh;t.videoUrl=videoUrl;t.photoUrl=photoUrl;}
+    else APP.tasks[subtype].push({id:subtype[0]+Date.now().toString(36),name:name,note:note,freq:freq,engineHours:eh,videoUrl:videoUrl,photoUrl:photoUrl});
     closeModal();saveLocal();renderAdmin();renderPage(subtype);
     setSyn('spin','Saving…');
     try{
-      var enc=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
-      var tabMap={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
-      await gasWrite(tabMap[subtype],[['id','name','note','freq','engineHours','videoUrl','photoUrl']].concat(APP.tasks[subtype].map(enc)));
+      var enc2=function(t){return [t.id,t.name,t.note||'',t.freq||'',t.engineHours?'true':'false',t.videoUrl||'',t.photoUrl||''];};
+      var tabMap2={daily:'Daily Tasks',mon:'Mon Tasks',tue:'Tue Tasks',wed:'Wed Tasks',thu:'Thu Tasks'};
+      await gasWrite(tabMap2[subtype],[['id','name','note','freq','engineHours','videoUrl','photoUrl']].concat(APP.tasks[subtype].map(enc2)));
       setSyn('ok','Synced');
     }catch(e){setSyn('err','Save failed');}
   } else if(type==='member'){
@@ -820,26 +780,8 @@ async function modalSave(){
     setSyn('spin','Saving…');
     try{await gasWrite('Members',[['name']].concat(APP.members.map(function(m){return [m];})));setSyn('ok','Synced');}
     catch(e){setSyn('err','Save failed');}
-  } else {
-    var p1=document.getElementById('mp1').value.trim(),p2=document.getElementById('mp2').value.trim();
-    if(!/^\d{4}$/.test(p1)){alert('PIN must be 4 digits.');return;}
-    if(p1!==p2){alert('PINs do not match.');return;}
-    APP.pin=p1;closeModal();saveLocal();toast('PIN updated');
-    setSyn('spin','Saving…');
-    try{await gasWrite('Config',[['pin',APP.pin]]);setSyn('ok','Synced');}
-    catch(e){setSyn('err','Save failed');}
   }
 }
-
-// ── PIN ───────────────────────────────────────────────────────────────────────
-function pp(d){if(_pin.length>=4)return;_pin+=d;updDots();if(_pin.length===4)setTimeout(chkPin,120);}
-function pd(){_pin=_pin.slice(0,-1);updDots();}
-function updDots(state){var dots=document.querySelectorAll('.pdot');for(var i=0;i<dots.length;i++){dots[i].classList.toggle('f',i<_pin.length);dots[i].classList.toggle('e',state==='err');}}
-function chkPin(){
-  if(_pin===APP.pin){_pin='';updDots();document.getElementById('pin-gate').style.display='none';document.getElementById('adm-content').style.display='block';renderAdmin();document.getElementById('perr').textContent='';}
-  else{updDots('err');document.getElementById('perr').textContent='Incorrect PIN.';setTimeout(function(){_pin='';updDots();document.getElementById('perr').textContent='';},1000);}
-}
-function adminLogout(){_pin='';updDots();document.getElementById('adm-content').style.display='none';document.getElementById('pin-gate').style.display='block';}
 
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function showPage(page){
@@ -854,7 +796,7 @@ function highlightToday(){
   var today=todayPageKey();
   WDAYS.forEach(function(d){
     var tb=document.getElementById('tab-'+d);if(tb)tb.style.background=d===today?'rgba(72,202,228,.25)':'';
-    var nb=document.getElementById('nav-'+d);if(nb){nb.classList.toggle('today-day',d===today);if(d===today)nb.querySelector('.nlbl').style.color=nb.classList.contains('active')?'var(--ocean)':'var(--sky)';}
+    var nb=document.getElementById('nav-'+d);if(nb)nb.classList.toggle('today-day',d===today);
   });
 }
 function renderAll(){PAGES.forEach(function(p){if(p!=='admin')renderPage(p);});}
@@ -866,11 +808,7 @@ renderAll();
 highlightToday();
 initSync();
 setInterval(function(){manualSync();},60000);
-
-// Sync when app comes back into focus
-document.addEventListener('visibilitychange',function(){
-  if(document.visibilityState==='visible') manualSync();
-});
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')manualSync();});
 window.addEventListener('focus',function(){manualSync();});
 </script>
 </body>
